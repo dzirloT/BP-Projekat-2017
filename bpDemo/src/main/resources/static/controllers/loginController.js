@@ -20,7 +20,7 @@ app.controller('loginController', function($log, $http, $location, $rootScope){
       localStorage.setItem('prezime', $rootScope.logedData.prezime);
       localStorage.setItem('mail', $rootScope.logedData.maiil);
 
-      $location.path("/mainPage");
+      $location.path("/dbConnectorPage");
   }, function errorResponse(errResponse)  {
     $log.log(errorResponse.data);
   });

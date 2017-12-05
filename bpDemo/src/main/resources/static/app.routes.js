@@ -7,10 +7,22 @@ app.config(function($routeProvider) {
     templateUrl: "podstranice/registration.html",
     controller: "registrationController",
     controllerAs: "registrationCtrl"
-  }).when('/mainPage', {
-    templateUrl: "podstranice/mainPage.html",
-    controller: "mainPageController",
-    controllerAs: "mainPageCtrl"
+  }).when('/dbConnectorPage', {
+    templateUrl: "podstranice/dbConnectorPage.html",
+    controller: "dbConnectorController",
+    controllerAs: "dbConnCtrl"
+  }).when('/dbObjectsPage', {
+    templateUrl: "podstranice/dbObjectsPage.html",
+    controller: "dbObjectsController",
+    controllerAs: "dbObjectsCtrl"
+  }).when("/showObjectsPage/:objectsName", {
+    templateUrl: "podstranice/showObjectsPage.html",
+    controller: "showObjectsController",
+    controllerAs: "showObjectsCtrl"
+  }).when("/showObjectsPage/:objectsName/:objectName", {
+    templateUrl: "podstranice/showObjectPage.html",
+    controller: "showObjectController",
+    controllerAs: "showObjectCtrl"
   }).when('/', {
     templateUrl: "podstranice/login.html",
     controller: "loginController",

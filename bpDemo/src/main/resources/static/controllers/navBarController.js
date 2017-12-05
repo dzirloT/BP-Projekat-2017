@@ -13,10 +13,11 @@ app.controller("navBarController", function($rootScope, $scope, $http, $log, $lo
     $rootScope.logedData.prezime = localStorage.getItem('prezime');
     $rootScope.logedData.mail = localStorage.getItem('mail');
 
-    $location.path("/mainPage");
+    //$location.path("/dbConnectorPage");
   }
 
   $scope.odjava = function()  {
+    $http.post("http://localhost:8080/jdbc/closeConnection").then(function sucRes(suc) {}, function errRes(err)  {});
     $rootScope.logedData.loged = false;
     $rootScope.logedData.ime = "";
     $rootScope.logedData.prezime = "";
