@@ -1,0 +1,17 @@
+\BOOKMARK [0][-]{chapter.1}{Opis teme}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Funkcionalnosti sitema DHMV}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Detaljni opis funkcionalnosti}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Pregled svih baza podataka}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Pregled svih tabela baze podataka}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{Upravljanje objektima vezanih za bazu i/ili tabelu}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.4}{Pregled svih korisnika baze podataka}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.5}{Vizualizacija meta podataka}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.6}{Prikaz, kreiranje, ureivanje i brisanje podataka unutar baze}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Tehnologija}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Java Spring}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.1.1}{Spring MVC}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.2}{Spring Data JPA}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{AngularJS}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{PostgreSQL}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{OracleDB}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.5}{Android}{chapter.3}% 17
