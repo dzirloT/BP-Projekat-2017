@@ -13,12 +13,12 @@ app.service('validateCreateView', function($log)  {
       this.greske.title = "Prazno polje naziva ili se pojavljuju brojevi";
       this.greska = true;
     }
-    if(viewPodaci.tabele == "") {
-      this.greske.tabele = "Tekst ne može biti prazan";
+    if(viewPodaci.tabele.length == 0) {
+      this.greske.akcija = "Morate odabrati opciju";
       this.greska = true;
     }
-    if(viewPodaci.kolone == "" ) {
-      this.greske.kolone = "Tekst ne može biti prazan";
+    if(viewPodaci.kolone.length == 0) {
+      this.greske.akcija = "Morate odabrati opciju";
       this.greska = true;
     }
     if(viewPodaci.uslov == "") {

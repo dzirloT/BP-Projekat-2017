@@ -1,5 +1,5 @@
 app.controller('triggerController', function($log, $http, $location, validateCreateTrigger){
-
+ctrl=this;
 
   this.triggerPodaci = {
     title : "",
@@ -22,6 +22,18 @@ app.controller('triggerController', function($log, $http, $location, validateCre
     kod : "",
   };
 
+  ctrl.tableNames = [];
+   $http.post('http://localhost:8080/jdbc/getObjectNames/user_tables').then(
+     function successResponse(succResponse) {
+       $log.log(succResponse.data);
+       ctrl.tableNames = succResponse.data;
+       $(document).ready(function() {
+        $('select').material_select();
+      });
+     }, function errorReponse(errResponse)  {
+
+     }
+   );
   $(document).ready(function() {
      $('select').material_select();
    });

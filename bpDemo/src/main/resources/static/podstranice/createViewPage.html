@@ -13,7 +13,23 @@
           <label for="view_title" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.title}}</label>
         </div>
       </div>
-      <<div class="row">
+      <div class="row">
+      <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+         <select multiple class="grey lighten-3" name="" ng-change="viewCtrl.jsFunction()" ng-model="viewCtrl.viewPodaci.tabele">
+           <option class="validate grey lighten-3" value="" disabled selected>Odaberi tabelu</option>
+           <option class="validate grey lighten-3" ng-repeat="t in viewCtrl.tableNames" value="{{t}}">{{t}}</option>
+         </select>
+       </div>
+       </div>
+       <div class="row">
+       <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+          <select  multiple class="grey lighten-3" name="" ng-model="viewCtrl.viewPodaci.kolone">
+            <option class="validate grey lighten-3" value="" disabled selected>Odaberi kolonu</option>
+            <option class="validate grey lighten-3" ng-repeat="c in viewCtrl.columnNames" value="{{c}}">{{c}}</option>
+          </select>
+        </div>
+        </div>
+  <!--    <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <textarea id="kolone" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.kolone"></textarea>
           <label for="kolone" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Alias.kolone (odvojiti zarezom)</label>
@@ -26,7 +42,7 @@
         <label for="tabele" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Tabele alias (odvojiti zarezom)</label>
         <label for="kolone" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.tabele}}</label>
       </div>
-    </div>
+    </div>-->
 
 
       <div class="row">

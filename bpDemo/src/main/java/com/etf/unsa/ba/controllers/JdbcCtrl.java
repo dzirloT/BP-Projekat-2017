@@ -84,6 +84,33 @@ public class JdbcCtrl {
 		System.out.println("Vracaju se imena");
 		return names;
 	}
+	@RequestMapping("/getTableColumnNames")
+	public ArrayList<String> getColumnNames()	{
+		ArrayList<String> names = new ArrayList<String> (); 
+		
+		try {
+			
+			Statement stmt = oracleConn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM  USER_TAB_COLUMNS"); 
+			ResultSetMetaData meta = rs.getMetaData(); 
+			String nazivTabele = meta.getColumnName(1);
+			String nazivKolone = meta.getColumnName(2);
+			
+			rs.close();
+			stmt.close();
+			stmt = oracleConn.createStatement();
+			rs = stmt.executeQuery("SELECT " +nazivTabele +", "+ nazivKolone + " FROM USER_TAB_COLUMNS"); 
+			while(rs.next())	{
+				names.add(rs.getString(nazivTabele)+"."+rs.getString(nazivKolone)); 
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Vracaju se imena");
+		return names;
+	}
 	@RequestMapping("/getObjectsMetaData")
 	public objectDescrtipion objectsMetaData(@RequestBody final objectDescName params)	{
 		System.out.println(params.name);
@@ -148,8 +175,20 @@ public class JdbcCtrl {
 		System.out.println(params.kolone);
 		System.out.println(params.uslov);
 		dbConnectionResponse desc = new dbConnectionResponse();
-		String sql= "CREATE VIEW "+ params.title +  " AS SELECT " +params.kolone 
-				+" FROM " + params.tabele + " WHERE " + params.uslov;
+		String sql= "CREATE VIEW "+ params.title +  " AS SELECT ";
+		if (params.kolone.size()!=1) {
+		for (int i=0; i<params.kolone.size()-1;i++) {
+			sql+=params.kolone.get(i) +", ";
+		}
+		}
+		sql+=params.kolone.get(params.kolone.size()-1);
+		sql+=" FROM ";
+		if (params.tabele.size()!=1) {
+		for (int i=0; i<params.tabele.size()-1;i++) {
+			sql+=params.tabele.get(i) +", ";
+		}}
+		sql+=params.tabele.get(params.tabele.size()-1);
+		sql+= " WHERE " + params.uslov;
 		System.out.println(sql);
 		try {			
 			int n = oracleConn.createStatement().executeUpdate(sql);
@@ -196,51 +235,7 @@ public class JdbcCtrl {
 		System.out.println(sql);
 		try {			
 			int n = oracleConn.createStatement().executeUpdate(sql);
-	/*		stmt.clearParameters();
-			if (params.akcija.size() ==1) {
-			stmt.setString(1,"\""+params.title+"\"");
-			stmt.setString(2, params.okidanje);
-			stmt.setString(3, params.akcija.get(0));
-			stmt.setString(4, "\""+params.table+"\"");
-			stmt.setString(5, params.red);
-			if (params.variable == null || params.variable.isEmpty())
-				{
-				stmt.setString(6, params.kod);
-			}
-			else {
-			stmt.setString(6, params.variable);
-			stmt.setString(7, params.kod);
-			}
-			}
-			else if (params.akcija.size() ==2) {
-				stmt.setString(1,"\""+params.title+"\"");
-				stmt.setString(2, params.okidanje);
-				stmt.setString(3, params.akcija.get(0));
-				stmt.setString(4, params.akcija.get(1));
-				stmt.setString(5, "\""+params.table+"\"");
-				stmt.setString(6, params.red);
-				if (params.variable == null || params.variable.isEmpty())
-					stmt.setString(7, params.kod);
-				else {
-				stmt.setString(7, params.variable);
-				stmt.setString(8, params.kod); }
-				System.out.println(params.title);
-				}
-			else {
-				stmt.setString(1,"\""+params.title+"\"");
-				stmt.setString(2, params.okidanje);
-				stmt.setString(3, params.akcija.get(0));
-				stmt.setString(4, params.akcija.get(1));
-				stmt.setString(5, params.akcija.get(2));
-				stmt.setString(6, "\""+params.table+"\"");
-				stmt.setString(7, params.red);
-				if (params.variable == null || params.variable.isEmpty())
-					stmt.setString(8, params.kod);
-				else {
-				stmt.setString(8, params.variable);
-				stmt.setString(9, params.kod);}
-				}
-			stmt.executeUpdate();*/
+	
 			System.out.println(Integer.toString(n)+"Kraj ispisa");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -356,8 +351,8 @@ public class JdbcCtrl {
 	}
 	private static class viewDesc{
 		public String title;
-		public String tabele;
-		public String kolone;
+		public ArrayList<String> tabele;
+		public ArrayList<String> kolone;
 		public String uslov;
 	}
 }
