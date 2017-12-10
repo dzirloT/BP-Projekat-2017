@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="Style/stil.css">
   </head>
   <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,6 +29,7 @@
             </ul>
             <ul class="right hide-on-med-and-down" ng-show="logedData.loged">
               <li><a href="#/login" ng-click="odjava()">Odjavi se</a></li>
+
             </ul>
           </div>
         </div>
@@ -45,6 +47,8 @@
     <script src="controllers/dbObjectsController.js" charset="utf-8"></script>
     <script src="controllers/showObjectsController.js" charset="utf-8"></script>
     <script src="controllers/showObjectController.js" charset="utf-8"></script>
+    <script src="controllers/createTriggerController.js" charset="utf-8"></script>
     <script src="services/registrationValidationService.js" charset="utf-8"></script>
+    <script src="services/createTriggerValidationService.js" charset="utf-8"></script>
   </body>
 </html>

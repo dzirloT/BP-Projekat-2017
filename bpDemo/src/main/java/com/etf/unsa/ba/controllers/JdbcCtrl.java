@@ -3,6 +3,7 @@ package com.etf.unsa.ba.controllers;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -140,6 +141,94 @@ public class JdbcCtrl {
 		}
 		return desc; 
 	}
+	@RequestMapping("/createTrigger")
+	public dbConnectionResponse createTrigger(@RequestBody final triggerDesc params)	{
+		System.out.println(params.title);
+		System.out.println(params.okidanje);
+		System.out.println(params.akcija);
+		System.out.println(params.table);
+		System.out.println(params.variable);
+		System.out.println(params.kod);
+		System.out.println(params.red);
+		dbConnectionResponse desc = new dbConnectionResponse();
+		String sql= null;
+		if (params.akcija.size()==1)
+		{sql = "CREATE OR REPLACE TRIGGER \""+params.title+"\" "  + params.okidanje +
+				" "+params.akcija.get(0) +" ON \""+params.table+"\" ";
+			if (params.variable == null || params.variable.isEmpty())
+			 sql = sql+ "BEGIN "+params.kod+" END;";
+			else 
+				 sql = sql+ "DECLARE " + params.variable +" BEGIN "+params.kod+" END;";}
+		else if (params.akcija.size()==2)
+		{sql = "CREATE OR REPLACE TRIGGER \""+params.title+"\" "  + params.okidanje +
+			" "+params.akcija.get(0) +" OR "+ params.akcija.get(1)+ " ON \""+params.table+"\" ";
+			if (params.variable == null || params.variable.isEmpty())
+			 sql = sql+ "BEGIN "+params.kod+" END;";
+			else 
+				 sql = sql+ "DECLARE " + params.variable +" BEGIN "+params.kod+" END;";
+		}
+			else 
+		{sql = "CREATE OR REPLACE TRIGGER \""+params.title+"\" "  + params.okidanje +
+			" "+params.akcija.get(0) +" OR "+ params.akcija.get(1)+ " OR "+ params.akcija.get(2)+ " ON \""+params.table+"\" ";	
+				if (params.variable == null || params.variable.isEmpty())
+				 sql = sql+ "BEGIN "+params.kod+" END;";
+				else 
+					 sql = sql+ "DECLARE " + params.variable +" BEGIN "+params.kod+" END;";
+		}
+		System.out.println(sql);
+		try {			
+			int n = oracleConn.createStatement().executeUpdate(sql);
+	/*		stmt.clearParameters();
+			if (params.akcija.size() ==1) {
+			stmt.setString(1,"\""+params.title+"\"");
+			stmt.setString(2, params.okidanje);
+			stmt.setString(3, params.akcija.get(0));
+			stmt.setString(4, "\""+params.table+"\"");
+			stmt.setString(5, params.red);
+			if (params.variable == null || params.variable.isEmpty())
+				{
+				stmt.setString(6, params.kod);
+			}
+			else {
+			stmt.setString(6, params.variable);
+			stmt.setString(7, params.kod);
+			}
+			}
+			else if (params.akcija.size() ==2) {
+				stmt.setString(1,"\""+params.title+"\"");
+				stmt.setString(2, params.okidanje);
+				stmt.setString(3, params.akcija.get(0));
+				stmt.setString(4, params.akcija.get(1));
+				stmt.setString(5, "\""+params.table+"\"");
+				stmt.setString(6, params.red);
+				if (params.variable == null || params.variable.isEmpty())
+					stmt.setString(7, params.kod);
+				else {
+				stmt.setString(7, params.variable);
+				stmt.setString(8, params.kod); }
+				System.out.println(params.title);
+				}
+			else {
+				stmt.setString(1,"\""+params.title+"\"");
+				stmt.setString(2, params.okidanje);
+				stmt.setString(3, params.akcija.get(0));
+				stmt.setString(4, params.akcija.get(1));
+				stmt.setString(5, params.akcija.get(2));
+				stmt.setString(6, "\""+params.table+"\"");
+				stmt.setString(7, params.red);
+				if (params.variable == null || params.variable.isEmpty())
+					stmt.setString(8, params.kod);
+				else {
+				stmt.setString(8, params.variable);
+				stmt.setString(9, params.kod);}
+				}
+			stmt.executeUpdate();*/
+			System.out.println(Integer.toString(n)+"Kraj ispisa");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return desc; 
+	}
 	@RequestMapping("/establishConnection")
 	public dbConnectionResponse establish (@RequestBody final dbConnectionParams params)	
 		throws ServletException	{
@@ -237,5 +326,14 @@ public class JdbcCtrl {
 	private static class dbConnectionResponse	{
 		public String response;
 		public String imeKorisnika; 
+	}
+	private static class triggerDesc{
+		public String title;
+		public String okidanje;
+		public ArrayList<String> akcija;
+		public String table;
+		public String variable;
+		public String kod;
+		public String red;
 	}
 }

@@ -7,6 +7,7 @@ app.controller("navBarController", function($rootScope, $scope, $http, $log, $lo
     mail : ""
   };
 
+
   if(localStorage.getItem('loged') != null) {
     $rootScope.logedData.loged = localStorage.getItem('loged');
     $rootScope.logedData.ime = localStorage.getItem('ime');
