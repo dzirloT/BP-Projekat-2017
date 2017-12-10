@@ -23,6 +23,10 @@ app.config(function($routeProvider) {
     templateUrl: "podstranice/showObjectPage.html",
     controller: "showObjectController",
     controllerAs: "showObjectCtrl"
+  }).when("/createTrigger", {
+    templateUrl: "podstranice/createTriggerPage.html",
+    controller: "triggerController",
+    controllerAs: "trigCtrl"
   }).when('/', {
     templateUrl: "podstranice/login.html",
     controller: "loginController",

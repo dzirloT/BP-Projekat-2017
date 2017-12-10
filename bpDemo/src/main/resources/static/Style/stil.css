@@ -1,0 +1,17 @@
+#data {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+#data:hover{
+    overflow: visible;
+    white-space: normal;
+    width: auto;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    z-index:9999;
+
+}
