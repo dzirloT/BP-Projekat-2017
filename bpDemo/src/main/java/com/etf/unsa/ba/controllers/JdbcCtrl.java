@@ -141,6 +141,24 @@ public class JdbcCtrl {
 		}
 		return desc; 
 	}
+	@RequestMapping("/createView")
+	public dbConnectionResponse createView(@RequestBody final viewDesc params)	{
+		System.out.println(params.title);
+		System.out.println(params.tabele);
+		System.out.println(params.kolone);
+		System.out.println(params.uslov);
+		dbConnectionResponse desc = new dbConnectionResponse();
+		String sql= "CREATE VIEW "+ params.title +  " AS SELECT " +params.kolone 
+				+" FROM " + params.tabele + " WHERE " + params.uslov;
+		System.out.println(sql);
+		try {			
+			int n = oracleConn.createStatement().executeUpdate(sql);
+			System.out.println(Integer.toString(n)+"Kraj ispisa");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return desc; 
+	}
 	@RequestMapping("/createTrigger")
 	public dbConnectionResponse createTrigger(@RequestBody final triggerDesc params)	{
 		System.out.println(params.title);
@@ -335,5 +353,11 @@ public class JdbcCtrl {
 		public String variable;
 		public String kod;
 		public String red;
+	}
+	private static class viewDesc{
+		public String title;
+		public String tabele;
+		public String kolone;
+		public String uslov;
 	}
 }

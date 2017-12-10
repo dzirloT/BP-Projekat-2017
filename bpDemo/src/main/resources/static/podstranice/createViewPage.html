@@ -1,0 +1,44 @@
+<div class="triggerDiv" class="row">
+  <div class="row light-blue">
+    <div class="light-blue darken-1 z-depth-1">
+      <h1>
+        <h5 class="center grey-text text-lighten-4">Kreiranje pogleda</h5>
+      </h1>
+    </div>
+    <form>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <input id="view_title" type="text" class="validate grey lighten-3" ng-model="viewCtrl.viewPodaci.title">
+          <label for="view_title" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Naziv pogleda</label>
+          <label for="view_title" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.title}}</label>
+        </div>
+      </div>
+      <<div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <textarea id="kolone" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.kolone"></textarea>
+          <label for="kolone" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Alias.kolone (odvojiti zarezom)</label>
+          <label for="kolone" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.kolone}}</label>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col s6 m6 offset-s3 offset-m3 input-field">
+        <textarea id="tabele" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.tabele"></textarea>
+        <label for="tabele" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Tabele alias (odvojiti zarezom)</label>
+        <label for="kolone" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.tabele}}</label>
+      </div>
+    </div>
+
+
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <textarea id="uslov" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.uslov"></textarea>
+          <label for="uslov" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Where uslov</label>
+          <label for="uslov" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.uslov}}</label>
+        </div>
+      </div>
+      <div class="container">
+        <a class="waves-effect waves-light btn deep-orange right" ng-click="viewCtrl.createView()">Kreiraj pogled</a>
+      </div>
+    </form>
+  </div>
+</div>
