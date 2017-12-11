@@ -1,0 +1,42 @@
+<div class="indexDiv" class="row">
+
+  <div class="row light-blue">
+    <div id="modal1" ng-class="indexCtrl.modal" style="z-index: 1003;display: block;opacity: 1;transform: scaleX(1);top: 10%;" ng-show="indexCtrl.createIndexSuccess.showModal">
+      <div class="modal-content">
+        <h4>{{indexCtrl.createIndexSuccess.headerResponse}}</h4>
+        <p>{{indexCtrl.createIndexSuccess.paragraphResponse}}</p>
+      </div>
+      <div class="modal-footer">
+        <button data-target="modal1" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="indexCtrl.zatvoriModal()">OK</button>
+      </div>
+    </div>
+
+    <div class="light-blue darken-1 z-depth-1">
+      <h5 class="center grey-text text-lighten-4">Kreiranje indeksa</h5>
+    </div>
+
+    <form>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <input id = "index_title" type="text" class="validate grey lighten-3" ng-model="indexCtrl.indexData.title">
+          <label for="index_title" class="grey-text text-darken-4" ng-show="!indexCtrl.error">Naziv indeksa</label>
+          <label for="index_title" class="grey-text text-darken-4" ng-show="indexCtrl.error">{{indexCtrl.errors.title}}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <select multiple class="grey lighten-3" name="tables" ng-model="indexCtrl.indexData.columns">
+            <option class="validate grey lighten-3" value="" disabled selected>Odaberi kolone</option>
+            <option ng-repeat="c in indexCtrl.columns" value="{{c}}">{{c}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="container">
+        <a class="waves-effect waves-light btn deep-orange right" ng-click="indexCtrl.createIndex()">Kreiraj indeks</a>
+      </div>
+    </form>
+
+  </div>
+</div>

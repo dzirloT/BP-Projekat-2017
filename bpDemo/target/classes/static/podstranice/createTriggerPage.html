@@ -1,0 +1,74 @@
+<div class="triggerDiv" class="row">
+  <div class="row light-blue">
+
+    <div id="modal1" ng-class="trigCtrl.modal" style="z-index: 1003;display: block;opacity: 1;transform: scaleX(1);top: 10%;" ng-show="trigCtrl.createTriggerSuccess.showModal">
+      <div class="modal-content">
+        <h4>{{trigCtrl.createTriggerSuccess.headerResponse}}</h4>
+        <p>{{trigCtrl.createTriggerSuccess.paragraphResponse}}</p>
+      </div>
+      <div class="modal-footer">
+        <button data-target="modal1" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="trigCtrl.zatvoriModal()">OK</button>
+      </div>
+    </div>
+
+    <div class="light-blue darken-1 z-depth-1">
+        <h5 class="center grey-text text-lighten-4">Kreiranje triggera</h5>
+    </div>
+    <form>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <input id="trigger_title" type="text" class="validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.title">
+          <label for="trigger_title" class="grey-text text-darken-4"ng-show="!trigCtrl.greska">Naziv triggera</label>
+          <label for="trigger_title" class="grey-text text-darken-4" ng-show="trigCtrl.greska">{{trigCtrl.greske.title}}</label>
+        </div>
+      </div>
+      <div class="row">
+      <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+     <select id="okidanje" class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.okidanje">
+       <option class="validate grey lighten-3" value="" disabled selected>Odaberi opciju okidanja</option>
+       <option class="validate grey lighten-3" value="BEFORE">BEFORE</option>
+       <option class="validate grey lighten-3" value="AFTER">AFTER</option>
+     </select>
+   </div>
+ </div>
+ <div class="row">
+ <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+    <select id="akcija" multiple class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.akcija">
+      <option class="validate grey lighten-3" value="" disabled selected>Odaberi akciju</option>
+      <option class="validate grey lighten-3" value="INSERT">INSERT</option>
+      <option class="validate grey lighten-3" value="UPDATE">UPDATE</option>
+      <option class="validate grey lighten-3" value="DELETE">DELETE</option>
+    </select>
+  </div>
+  </div>
+  <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+     <select  class="grey lighten-3" name="" ng-model="trigCtrl.triggerPodaci.table">
+       <option class="validate grey lighten-3" value="" disabled selected>Odaberi tabelu</option>
+       <option class="validate grey lighten-3" ng-repeat="t in trigCtrl.tableNames" value="{{t}}">{{t}}</option>
+     </select>
+   </div>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 ">
+      <input type="checkbox" class="white-text filled-in " id="test5" value="FOR EACH ROW" ng-model="trigCtrl.red" />
+            <label for="test5" class="white-text">FOR EACH ROW</label>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <textarea id="variable_decl" class="materialize-textarea validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.variable"></textarea>
+          <label for="variable_decl" class="grey-text text-darken-4" ng-show="!trigCtrl.greska">Deklaracija varijabli triggera </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6 m6 offset-s3 offset-m3 input-field">
+          <textarea id="trigger_code" class="materialize-textarea validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.kod"></textarea>
+          <label for="trigger_code" class="grey-text text-darken-4" ng-show="!trigCtrl.greska">Kôd triggera </label>
+          <label for="trigger_code" class="grey-text text-darken-4" ng-show="trigCtrl.greska">{{trigCtrl.greske.kod}}</label>
+        </div>
+      </div>
+      <div class="container">
+        <a class="waves-effect waves-light btn deep-orange right" ng-click="trigCtrl.createTrigger()">Kreiraj trigger</a>
+      </div>
+    </form>
+  </div>
+</div>

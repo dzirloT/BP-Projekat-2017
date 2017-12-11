@@ -1,0 +1,43 @@
+app.config(function($routeProvider) {
+  $routeProvider.when('/login', {
+    templateUrl: "podstranice/login.html",
+    controller: "loginController",
+    controllerAs: "loginCtrl"
+  }).when('/registration', {
+    templateUrl: "podstranice/registration.html",
+    controller: "registrationController",
+    controllerAs: "registrationCtrl"
+  }).when('/dbConnectorPage', {
+    templateUrl: "podstranice/dbConnectorPage.html",
+    controller: "dbConnectorController",
+    controllerAs: "dbConnCtrl"
+  }).when('/dbObjectsPage', {
+    templateUrl: "podstranice/dbObjectsPage.html",
+    controller: "dbObjectsController",
+    controllerAs: "dbObjectsCtrl"
+  }).when("/showObjectsPage/:objectsName", {
+    templateUrl: "podstranice/showObjectsPage.html",
+    controller: "showObjectsController",
+    controllerAs: "showObjectsCtrl"
+  }).when("/showObjectsPage/:objectsName/:objectName", {
+    templateUrl: "podstranice/showObjectPage.html",
+    controller: "showObjectController",
+    controllerAs: "showObjectCtrl"
+  }).when("/createTrigger", {
+    templateUrl: "podstranice/createTriggerPage.html",
+    controller: "triggerController",
+    controllerAs: "trigCtrl"
+  }).when("/createIndex/:objectName", {
+    templateUrl: "podstranice/createIndexPage.html",
+    controller: "createIndexController",
+    controllerAs: "indexCtrl"
+  }).when("/createView", {
+    templateUrl: "podstranice/createViewPage.html",
+    controller: "viewController",
+    controllerAs: "viewCtrl"
+  }).when('/', {
+    templateUrl: "podstranice/login.html",
+    controller: "loginController",
+    controllerAs: "loginCtrl"
+  })
+});

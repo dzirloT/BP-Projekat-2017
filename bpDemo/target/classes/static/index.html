@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Style/stil.css">
+  </head>
+  <!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <body>
+    <div class="row light-blue darken-2" class="container" ng-app='bpDemo'>
+      <div class="row light-blue darken-2"></div>
+      <nav class="col s12 m12 light-blue z-depth-5" ng-controller="navBarController">
+        <div>
+          <div class="nav-wrapper light-blue">
+            <a href="#!" class="col offset-s1 offset-m1 brand-logo left">Logo</a>
+            <ul class="right hide-on-med-and-down" ng-show="!logedData.loged">
+              <li><a href="#/login">Prijava</a></li>
+              <li><a href="#/registration">Registracija</a></li>
+              <li><a href="#/about">O nama</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down" ng-show="logedData.loged">
+              <li><a href="#/login" ng-click="odjava()">Odjavi se</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="col s10 m10 offset-s1 offset-m1" ng-view="">  </div>
+    </div>
+    <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="bower_components/angular-route/angular-route.min.js" charset="utf-8"></script>
+    <script src="app.module.js" charset="utf-8"></script>
+    <script src="app.routes.js" charset="utf-8"></script>
+    <script src="controllers/navBarController.js" charset="utf-8"></script>
+    <script src="controllers/loginController.js", charset="utf-8"></script>
+    <script src="controllers/registrationController.js" charset="utf-8"></script>
+    <script src="controllers/dbConnectorController.js" charset="utf-8"></script>
+    <script src="controllers/dbObjectsController.js" charset="utf-8"></script>
+    <script src="controllers/showObjectsController.js" charset="utf-8"></script>
+    <script src="controllers/showObjectController.js" charset="utf-8"></script>
+    <script src="controllers/createTriggerController.js" charset="utf-8"></script>
+    <script src="controllers/createIndexController.js" charset="utf-8"></script>
+    <script src="controllers/createViewController.js" charset="utf-8"></script>
+    <script src="services/registrationValidationService.js" charset="utf-8"></script>
+    <script src="services/createViewValidationService.js" charset="utf-8"></script>
+    <script src="services/createTriggerValidationService.js" charset="utf-8"></script>
+    <script src="services/createIndexValidationService.js" charset="utf-8"></script>
+  </body>
+</html>
