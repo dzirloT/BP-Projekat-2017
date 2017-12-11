@@ -81,7 +81,6 @@ public class JdbcCtrl {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
-		System.out.println("Vracaju se imena");
 		return names;
 	}
 	@RequestMapping("/getObjectsMetaData")
@@ -308,6 +307,70 @@ public class JdbcCtrl {
 
 	}
 	
+	@RequestMapping("/getTableColumns/{objectName}")
+	public ArrayList<String> getTableColumns(@PathVariable String objectName)	{
+		ArrayList<String> columns = new ArrayList<String> (); 
+		System.out.println("Vracam nazive tabela");
+		
+		try {
+			
+			Statement stmt = oracleConn.createStatement();
+			System.out.println("1");
+			
+			String query = "select * from " + objectName;
+			stmt = oracleConn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(query);
+			System.out.println("2");
+			ResultSetMetaData rsMetaData = rs.getMetaData();
+			System.out.println("3");
+			int numberOfColumns = rsMetaData.getColumnCount();
+
+		    // get the column names; column indexes start from 1
+		    for (int i = 1; i < numberOfColumns + 1; i++) {
+		      String columnName = rsMetaData.getColumnName(i);
+		      // Get the name of the column's table name
+		      columns.add(columnName);
+		      System.out.println("column name=" + columnName);
+		    }
+			stmt.close();
+			stmt = oracleConn.createStatement();
+			
+		} catch (Exception e) {
+			System.out.println("Greska " + e.getMessage());
+			// TODO: handle exception
+		}
+		System.out.println("Vracam nazive kolona za tabelu " + objectName);
+		return columns;
+	}
+	
+	@RequestMapping("/createIndex")
+	public dbConnectionResponse createIndex(@RequestBody final indexDesc params) {
+		dbConnectionResponse desc = new dbConnectionResponse();
+		String sql = null;
+		
+		sql = "CREATE INDEX " + params.title +
+				" ON " + params.table + "(";
+		
+		for(int i = 0; i < params.columns.size(); i++) {
+			System.out.println(params.columns.get(i));
+			if (params.columns.size() - 1 != i) sql += params.columns.get(i) + ", ";
+			else sql += params.columns.get(i) + ")";
+		}
+		
+		try {
+			oracleConn.createStatement().executeUpdate(sql);
+			System.out.println("Kreiran je indeks.");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println(sql);
+		
+		return desc;
+	}
+	
 	private static class objectDescName	{
 		public String objectName;
 		public String name; 
@@ -335,5 +398,10 @@ public class JdbcCtrl {
 		public String variable;
 		public String kod;
 		public String red;
+	}
+	private static class indexDesc{
+		public String title;
+		public String table;
+		public ArrayList<String> columns;
 	}
 }
