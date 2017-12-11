@@ -412,17 +412,17 @@ public class JdbcCtrl {
 		public String kod;
 		public String red;
 	}
-<<<<<<< HEAD
+
 	private static class indexDesc{
 		public String title;
 		public String table;
 		public ArrayList<String> columns;
-=======
+	}	
+	
 	private static class viewDesc{
 		public String title;
 		public ArrayList<String> tabele;
 		public ArrayList<String> kolone;
 		public String uslov;
->>>>>>> 8dee8bce2eb8c7c79950b285d56c434b790d3393
 	}
 }
