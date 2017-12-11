@@ -16,8 +16,8 @@ app.service('validateCreateTrigger', function($log)  {
       this.greske.title = "Prazno polje naziva ili se pojavljuju brojevi";
       this.greska = true;
     }
-    if(triggerPodaci.table == "" ) {
-      this.greske.table = "Prazno polje naziva tabele ili se pojavljuju brojevi";
+    if(triggerPodaci.table == "") {
+      this.greske.okidanje = "Morate odabrati opciju";
       this.greska = true;
     }
     if(triggerPodaci.okidanje == "") {

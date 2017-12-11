@@ -32,13 +32,12 @@
     </select>
   </div>
   </div>
-      <div class="row">
-        <div class="col s6 m6 offset-s3 offset-m3 input-field">
-          <input id="table_name" type="text" class="validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.table">
-          <label for="table_name" class="grey-text text-darken-4" ng-show="!trigCtrl.greska">Naziv tabele</label>
-          <label for="table_name" class="grey-text text-darken-4" ng-show="trigCtrl.greska">{{trigCtrl.greske.table}}</label>
-        </div>
-      </div>
+  <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+     <select  class="grey lighten-3" name="" ng-model="trigCtrl.triggerPodaci.table">
+       <option class="validate grey lighten-3" value="" disabled selected>Odaberi tabelu</option>
+       <option class="validate grey lighten-3" ng-repeat="t in trigCtrl.tableNames" value="{{t}}">{{t}}</option>
+     </select>
+   </div>
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 ">
       <input type="checkbox" class="white-text filled-in " id="test5" value="FOR EACH ROW" ng-model="trigCtrl.red" />
