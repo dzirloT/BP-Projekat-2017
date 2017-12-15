@@ -35,6 +35,10 @@ app.config(function($routeProvider) {
     templateUrl: "podstranice/createViewPage.html",
     controller: "viewController",
     controllerAs: "viewCtrl"
+  }).when("/addTablePage", {
+    templateUrl: "podstranice/addTablePage.html",
+    controller: "addTableController",
+    controllerAs: "addTableCtrl"
   }).when('/', {
     templateUrl: "podstranice/login.html",
     controller: "loginController",

@@ -35,5 +35,8 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
   this.showObjects = function (objectName)  {
       $location.path('showObjectsPage/' + objectName);
   }
+  this.addTable = function()  {
+    $location.path('addTablePage');
+  }
 
 });
