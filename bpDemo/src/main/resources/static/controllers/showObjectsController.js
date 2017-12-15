@@ -15,4 +15,7 @@ app.controller('showObjectsController', function ($log, $http, $location, $route
   this.showObject = function (object) {
     $location.path('showObjectsPage/' + $routeParams.objectsName + "/" + object);
   }
+  this.addIndex = function (object){
+    $location.path('createIndex/' + object);
+  }
 });
