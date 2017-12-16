@@ -22,6 +22,17 @@ app.controller('triggerController', function($log, $http, $location, validateCre
     kod: "",
   };
 
+  this.createTriggerSuccess = {
+     showModal : false,
+     success : false,
+     headerResponse : "",
+     paragraphResponse : ""
+   };
+   this.modal = {
+     "modal" : true,
+     "modal open" : false
+   };
+
   ctrl.tableNames = [];
   $http.post('http://localhost:8080/jdbc/getObjectNames/user_tables').then(
     function successResponse(succResponse) {
@@ -47,18 +58,32 @@ app.controller('triggerController', function($log, $http, $location, validateCre
   this.createTrigger = function() {
     $log.log(this.triggerPodaci);
     this.greska = false;
-    if (this.red == true) this.triggerPodaci.red = "FOR EACH ROW";
-    if (this.triggerPodaci.variable == "" || this.triggerPodaci.variable.length == 0) this.triggerPodaci.variable = null;
-    if (validateCreateTrigger.validate(this.triggerPodaci) == false) {
-      $http.post("http://localhost:8080/jdbc/createTrigger", this.triggerPodaci).then(function successResponse(sucResponse) {
-        $log.log(succResponse.data);
-      }, function errorResponse(errResponse) {
-        $log.log(errorResponse.data);
-      });
-    } else {
-      this.greska = true;
-      this.greske = validateCreateTrigger.validate(this.triggerPodaci);
-      $log.log(this.greske);
-    };
-  };
+    if (this.red==true) this.triggerPodaci.red ="FOR EACH ROW";
+    if (this.triggerPodaci.variable=="" || this.triggerPodaci.variable.length ==0) ctrl.triggerPodaci.variable=null;
+    if(validateCreateTrigger.validate(this.triggerPodaci)  == false) {
+    $http.post("http://localhost:8080/jdbc/createTrigger", this.triggerPodaci
+  ).then(function successResponse(sucResponse)  {
+      ctrl.createTriggerSuccess.paragraphResponse = "Trigger uspjesno kreiran!";
+      ctrl.createTriggerSuccess.success = true;
+      ctrl.modal['modal'] = false;
+      ctrl.modal['modal open'] = true;
+      ctrl.createTriggerSuccess.showModal = true;
+      $log.log(sucResponse.data);
+  }, function errorResponse(errResponse)  {
+    ctrl.createTriggerSuccess.headerResponse = "Greška !";
+    ctrl.createTriggerSuccess.paragraphResponse = errResponse.data.message;
+    $log.log(errorResponse.data);
+  });
+}  else {
+  this.greska = true;
+  this.greske = validateCreateTrigger.validate(this.triggerPodaci);
+  $log.log(this.greske);
+};
+};
+this.zatvoriModal = function () {
+  ctrl.createTriggerSuccess.showModal = false;
+  ctrl.modal['modal'] = true;
+  ctrl.modal['modal open'] = false;
+}
+
 });

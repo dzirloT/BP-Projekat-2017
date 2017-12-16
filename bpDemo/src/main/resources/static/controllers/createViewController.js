@@ -16,14 +16,32 @@ ctrl=this;
   $('#uslov').val('New Text');
     $('#uslov').trigger('autoresize');
 
+    this.createViewSuccess = {
+       showModal : false,
+       success : false,
+       headerResponse : "",
+       paragraphResponse : ""
+     };
+     this.modal = {
+       "modal" : true,
+       "modal open" : false
+     };
+
   this.createView = function() {
     $log.log(  this.viewPodaci);
     this.greska = false;
     if(validateCreateView.validate(this.viewPodaci)  == false) {
     $http.post("http://localhost:8080/jdbc/createView", this.viewPodaci
   ).then(function successResponse(sucResponse)  {
-      $log.log(succResponse.data);
+  ctrl.createViewSuccess.paragraphResponse = "Pogled uspjesno kreiran!";
+  ctrl.createViewSuccess.success = true;
+  ctrl.modal['modal'] = false;
+  ctrl.modal['modal open'] = true;
+  ctrl.createViewSuccess.showModal = true;
+  $log.log(sucResponse.data);
   }, function errorResponse(errResponse)  {
+    ctrl.createViewSuccess.headerResponse = "Greška !";
+    ctrl.createViewSuccess.paragraphResponse = errResponse.data.message;
     $log.log(errorResponse.data);
   });
 }  else {
@@ -33,6 +51,11 @@ ctrl=this;
 };
 };
 
+this.zatvoriModal = function () {
+  ctrl.createViewSuccess.showModal = false;
+  ctrl.modal['modal'] = true;
+  ctrl.modal['modal open'] = false;
+}
 
 
  ctrl.tableNames = [];

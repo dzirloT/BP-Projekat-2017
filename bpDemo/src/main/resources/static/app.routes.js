@@ -27,10 +27,18 @@ app.config(function($routeProvider) {
     templateUrl: "podstranice/createTriggerPage.html",
     controller: "triggerController",
     controllerAs: "trigCtrl"
+  }).when("/createIndex/:objectName", {
+    templateUrl: "podstranice/createIndexPage.html",
+    controller: "createIndexController",
+    controllerAs: "indexCtrl"
   }).when("/createView", {
     templateUrl: "podstranice/createViewPage.html",
     controller: "viewController",
     controllerAs: "viewCtrl"
+  }).when("/addTablePage", {
+    templateUrl: "podstranice/addTablePage.html",
+    controller: "addTableController",
+    controllerAs: "addTableCtrl"
   }).when('/', {
     templateUrl: "podstranice/login.html",
     controller: "loginController",
