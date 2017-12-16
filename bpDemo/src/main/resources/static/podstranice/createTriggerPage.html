@@ -9,41 +9,41 @@
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <input id="trigger_title" type="text" class="validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.title">
-          <label for="trigger_title" class="grey-text text-darken-4"ng-show="!trigCtrl.greska">Naziv triggera</label>
+          <label for="trigger_title" class="grey-text text-darken-4" ng-show="!trigCtrl.greska">Naziv triggera</label>
           <label for="trigger_title" class="grey-text text-darken-4" ng-show="trigCtrl.greska">{{trigCtrl.greske.title}}</label>
         </div>
       </div>
       <div class="row">
-      <div class=" col s6 m6 offset-s3 offset-m3 input-field">
-     <select id="okidanje" class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.okidanje">
+        <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+          <select id="okidanje" class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.okidanje">
        <option class="validate grey lighten-3" value="" disabled selected>Odaberi opciju okidanja</option>
        <option class="validate grey lighten-3" value="BEFORE">BEFORE</option>
        <option class="validate grey lighten-3" value="AFTER">AFTER</option>
      </select>
-   </div>
- </div>
- <div class="row">
- <div class=" col s6 m6 offset-s3 offset-m3 input-field">
-    <select id="akcija" multiple class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.akcija">
-      <option class="validate grey lighten-3" value="" disabled selected>Odaberi akciju</option>
-      <option class="validate grey lighten-3" value="INSERT">INSERT</option>
-      <option class="validate grey lighten-3" value="UPDATE">UPDATE</option>
-      <option class="validate grey lighten-3" value="DELETE">DELETE</option>
-    </select>
-  </div>
-  </div>
-  <div class=" col s6 m6 offset-s3 offset-m3 input-field">
-     <select  class="grey lighten-3" name="" ng-model="trigCtrl.triggerPodaci.table">
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+          <select id="akcija" multiple class="grey lighten-3" ng-model="trigCtrl.triggerPodaci.akcija">
+              <option class="validate grey lighten-3" value="" disabled selected>Odaberi akciju</option>
+              <option class="validate grey lighten-3" value="INSERT">INSERT</option>
+              <option class="validate grey lighten-3" value="UPDATE">UPDATE</option>
+              <option class="validate grey lighten-3" value="DELETE">DELETE</option>
+          </select>
+        </div>
+      </div>
+      <div class=" col s6 m6 offset-s3 offset-m3 input-field">
+        <select class="grey lighten-3" name="" ng-model="trigCtrl.triggerPodaci.table">
        <option class="validate grey lighten-3" value="" disabled selected>Odaberi tabelu</option>
        <option class="validate grey lighten-3" ng-repeat="t in trigCtrl.tableNames" value="{{t}}">{{t}}</option>
      </select>
-   </div>
+      </div>
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 ">
-      <input type="checkbox" class="white-text filled-in " id="test5" value="FOR EACH ROW" ng-model="trigCtrl.red" />
-            <label for="test5" class="white-text">FOR EACH ROW</label>
-          </div>
+          <input type="checkbox" class="white-text filled-in " id="test5" value="FOR EACH ROW" ng-model="trigCtrl.red" />
+          <label for="test5" class="white-text">FOR EACH ROW</label>
         </div>
+      </div>
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <textarea id="variable_decl" class="materialize-textarea validate grey lighten-3" ng-model="trigCtrl.triggerPodaci.variable"></textarea>
