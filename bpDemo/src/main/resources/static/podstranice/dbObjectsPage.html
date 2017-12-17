@@ -1,22 +1,23 @@
 <div class="contentPageDiv" class="row">
-  <div class="row light-blue">
-    <div class="light-blue darken-1 z-depth-1">
-      <h1><h4 class="center grey-text text-lighten-4">Objekti u bazi su sljedeći</h4></h1>
+  <div class="row dark-primary-color">
+    <div class="default-primary-color darken-1 z-depth-1">
+      <h1><h4 class="center text-primary-color text-lighten-4">Objekti u bazi su sljedeći</h4></h1>
     </div>
+    <div class="row default-primary-color darken-1 z-depth-1">
     <div class="row">
       <div class="col s6 m3 offset-s2 offset-m3">
         <div class="card">
           <div class="card-image">
             <img src="pictures/tabele.png">
-            <span class="card-title grey-text text-darken-4"></span>
+            <span class="card-title text-primary-color text-darken-4"></span>
             <div class="fixed-action-btn horizontal" style="position:absolute">
-             <a class="btn-floating  red">
+             <a class="btn-floating  accent-color">
                <i class="large material-icons">mode_edit</i>
              </a>
              <ul>
-               <li><a class="btn-floating waves-effect waves-light deep-orange" ng-click="dbObjectsCtrl.showObjects('user_tables')"><i class="material-icons">search</i></a></li>
-               <li><a class="btn-floating  waves-effect waves-light deep-orange" ng-click="dbObjectsCtrl.addTable()"><i class="material-icons">add</i></a></li>
-               <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+               <li><a class="btn-floating waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_tables')"><i class="material-icons">search</i></a></li>
+               <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addTable()"><i class="material-icons">add</i></a></li>
+               <li><a class="btn-floating accent-color divider-color"><i class="material-icons">insert_chart</i></a></li>
              </ul>
            </div>
           </div>
@@ -30,8 +31,8 @@
         <div class="card">
           <div class="card-image">
             <img src="pictures/triggeri.png">
-            <span class="card-title grey-text text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light deep-orange" ng-click="dbObjectsCtrl.showObjects('user_triggers')"><i class="material-icons">search</i></a>
+            <span class="card-title text-primary-color text-darken-4"></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_triggers')"><i class="material-icons">search</i></a>
           </div>
           <div class="card-content">
             <h1><h4>Triggeri</h4></h1>
@@ -42,15 +43,12 @@
     </div>
 
     <div class="row">
-    </div>
-
-    <div class="row">
       <div class="col s6 m3 offset-s2 offset-m3">
         <div class="card">
           <div class="card-image">
             <img src="pictures/procedure.png">
-            <span class="card-title grey-text text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light deep-orange" ng-click="dbObjectsCtrl.showObjects('user_procedures')"><i class="material-icons">search</i></a>
+            <span class="card-title text-primary-color text-darken-4"></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_procedures')"><i class="material-icons">search</i></a>
           </div>
           <div class="card-content">
             <h1><h4>Procedura</h4></h1>
@@ -62,8 +60,8 @@
         <div class="card">
           <div class="card-image">
             <img src="pictures/pogledi.png">
-            <span class="card-title grey-text text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light deep-orange" ng-click="dbObjectsCtrl.showObjects('user_views')"><i class="material-icons">search</i></a>
+            <span class="card-title text-primary-color text-darken-4"></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_views')"><i class="material-icons">search</i></a>
           </div>
           <div class="card-content">
             <h1><h4>Pogledi</h4></h1>
@@ -72,8 +70,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-    </div>
+  </div>
   </div>
 </div>

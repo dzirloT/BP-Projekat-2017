@@ -1,48 +1,50 @@
 <div class="registrationDiv" class="row">
-  <div class="row light-blue">
-    <div class="light-blue darken-1 z-depth-1">
+  <div class="row dark-primary-color">
+    <div class="default-primary-color  darken-1 z-depth-1">
       <h1>
-        <h4 class="center grey-text text-lighten-4">Novi korisnik ? </h4>
-        <h5 class="center grey-text text-lighten-4">Molimo unesite vaše korisničke podatke</h5>
+        <h4 class="center text-primary-color text-lighten-4">Novi korisnik ? </h4>
+        <h5 class="center text-primary-color text-lighten-4">Molimo unesite vaše korisničke podatke</h5>
       </h1>
     </div>
 
+    <div class="row default-primary-color darken-1 z-depth-1">
     <form>
       <div class="row">
         <div class="col s4 m4 offseet-s2 offset-m2 input-field">
           <input id="user_firstName" type="text" class="validate grey lighten-3" ng-model="registrationCtrl.registrationData.imeKorisnika">
-          <label for="user_firstName" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">Ime korisnika</label>
-          <label for="user_firstName" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.imeGreska}}</label>
+          <label for="user_firstName" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">Ime korisnika</label>
+          <label for="user_firstName" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.imeGreska}}</label>
         </div>
         <div class="col s4 m4 input-field">
           <input id="user_surName" type="text" class="validate grey lighten-3" ng-model="registrationCtrl.registrationData.prezimeKorisnika">
-          <label for="user_surName" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">Prezime korisnika</label>
-          <label for="user_surName" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.prezimeGreska}}</label>
+          <label for="user_surName" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">Prezime korisnika</label>
+          <label for="user_surName" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.prezimeGreska}}</label>
         </div>
       </div>
       <div class="container">
         <div class="input-field">
           <input id="user_mail" type="text" class="validate grey lighten-3" ng-model="registrationCtrl.registrationData.korisnickiMail">
-          <label for="user_mail" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">Korisnički mail </label>
-          <label for="user_mail" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.mailGreska}}</label>
+          <label for="user_mail" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">Korisnički mail </label>
+          <label for="user_mail" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.mailGreska}}</label>
         </div>
       </div>
       <div class="container">
         <div class="input-field">
           <input id="user_password" type="password" class="validate grey lighten-3" ng-model="registrationCtrl.registrationData.korisnickiPassword">
-          <label for="user_password" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">Password </label>
-          <label for="user_password" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.passwordGreska}}</label>
+          <label for="user_password" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">Password </label>
+          <label for="user_password" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">{{registrationCtrl.greske.passwordGreska}}</label>
         </div>
       </div>
       <div class="container">
         <div class="input-field">
           <input id="user_password" type="password" class="validate grey lighten-3" ng-model="registrationCtrl.ponovljeniPassword">
-          <label for="user_password" class="grey-text text-darken-4">Ponovite password</label>
+          <label for="user_password" class="text-primary-color text-darken-4">Ponovite password</label>
         </div>
       </div>
       <div class="container">
-        <a class="waves-effect waves-light btn deep-orange right" ng-click="registrationCtrl.registerUser()">Registruj se</a>
+        <a class="waves-effect waves-light btn divider-color accent-color right" ng-click="registrationCtrl.registerUser()">Registruj se</a>
       </div>
     </form>
+  </div>
   </div>
 </div>

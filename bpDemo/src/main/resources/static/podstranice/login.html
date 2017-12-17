@@ -1,27 +1,27 @@
 <div class="loginDiv" class="row">
-  <div class="row light-blue">
-    <div class="light-blue darken-1 z-depth-1">
+  <div class="row dark-primary-color">
+    <div class="default-primary-color darken-1 z-depth-1">
       <h1>
-        <h4 class="center grey-text text-lighten-4">Dobrodošli !</h4>
-        <h5 class="center grey-text text-lighten-4">Molimo unesite vaše korisničke podatke</h5>
+        <h4 class="center text-primary-color  text-lighten-4">Dobrodošli !</h4>
+        <h5 class="center text-primary-color  text-lighten-4">Molimo unesite vaše korisničke podatke</h5>
       </h1>
     </div>
 
     <form>
       <div class="container">
         <div class="input-field">
-          <input id="user_mail" type="text" class="validate grey lighten-3" ng-model="loginCtrl.korisnickiPodaci.korisnickiMail">
-          <label for="user_mail" class="grey-text text-darken-4">Korisnički mail </label>
+          <input id="user_mail" type="text" class="validate  divider-color  grey lighten-3" ng-model="loginCtrl.korisnickiPodaci.korisnickiMail">
+          <label for="user_mail" class="text-primary-color">Korisnički mail </label>
         </div>
       </div>
       <div class="container">
         <div class="input-field">
-          <input id="user_password" type="password" class="validate grey lighten-3" ng-model="loginCtrl.korisnickiPodaci.korisnickiPassword">
-          <label for="user_password" class="grey-text text-darken-4">Password </label>
+          <input id="user_password" type="password" class="validate  divider-color  grey lighten-3" ng-model="loginCtrl.korisnickiPodaci.korisnickiPassword">
+          <label for="user_password" class="text-primary-color">Password </label>
         </div>
       </div>
       <div class="container">
-        <a class="waves-effect waves-light btn deep-orange right" ng-click="loginCtrl.loginUser()">Prijavi se</a>
+        <a class="btn accent-color divider-color right" ng-click="loginCtrl.loginUser()">Prijavi se</a>
       </div>
     </form>
   </div>
