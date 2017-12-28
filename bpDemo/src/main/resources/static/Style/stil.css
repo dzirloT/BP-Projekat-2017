@@ -10,8 +10,18 @@
     white-space: normal;
     width: auto;
     position: absolute;
-    background-color: gray;
+    background-color: #C5CAE9;
     color: white;
     z-index:9999;
 
 }
+
+.dark-primary-color    { background: #303F9F; }
+.default-primary-color { background: #3F51B5; }
+.light-primary-color   { background: #C5CAE9; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FF4081; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+.light-text-color      { color: #C5CAE9; }

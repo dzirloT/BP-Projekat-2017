@@ -1,12 +1,14 @@
 <div class="showObjectDiv" class="row">
-  <div class="row light-blue">
-    <div class="row" ng-repeat="metaData in showObjectCtrl.meta">
-        <div class="col s6 m6">
-          <h4 class="deep-orange-text">{{metaData.metaDataColumnName}}:</h4>
+  <div class="row dark-primary-color">
+      <div class="row default-primary-color darken-1 z-depth-1">
+        <div class="row" ng-repeat="metaData in showObjectCtrl.meta">
+        <div class="col s6 m6 ">
+          <h4 class="text-primary-color">{{metaData.metaDataColumnName}}:</h4>
           </div>
           <div class="col s6 m6">
-          <h4 class="white-text" style="word-break:break-word;"> {{metaData.metaDataValue}}</h4>
+          <h4 class="text-primary-color text-lighten-4" style="word-break:break-word;"> {{metaData.metaDataValue}}</h4>
         </div>
       </div>
+    </div>
   </div>
 </div>

@@ -1,9 +1,9 @@
 <div class="addTableDiv" class="row">
-  <div class="row light-blue">
-    <div class="light-blue darken-1 z-depth-2">
+  <div class="row dark-primary-color">
+    <div class="default-primary-color darken-1 z-depth-2">
       <h1>
-        <h4 class="center grey-text text-lighten-4">
-          <h5 class="center grey-text text-lighten-4">Molimo unesite sve podatke za tabelu</h5>
+        <h4 class="center text-primary-color text-lighten-4">
+          <h5 class="center text-primary-color text-lighten-4">Molimo unesite sve podatke za tabelu</h5>
         </h4>
       </h1>
     </div>
@@ -14,32 +14,49 @@
             <div class="col s12 m12">
               <div class="col s6 m3 offset-s4 offset-m4 text-lighten-4 input-field">
                 <input id="table_name" type="text" class="validate grey lighten-3" ng-model="addTableCtrl.table.name">
-                <label for="table_name" class="grey-text text-darken-4">Naziv tabele</label>
+                <label for="table_name" class="text-primary-color text-darken-4">Naziv tabele</label>
               </div>
             </div>
           </div>
         </div>
         <div class="container">
           <div class="row z-depth-1" ng-repeat="column in addTableCtrl.table.columns track by $index">
-            <div class="col s11 m11">
+            <div class="col s12 m12">
               <div class="col s2 m2 text-lighten-4 input-field">
                 <input id="table_column" type="text" class="validate grey lighten-3" ng-model=column.columnName>
                 <label for="table_column" class="grey-text text-darken-4">Naziv kolone</label>
               </div>
               <div class="col s1 m2 text-lighten-4 input-field">
                 <select id="select_tip_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.dataType" ng-options="type for type in addTableCtrl.dataTypes"></select>
-                <label for="select_tip_{{$index}}" class="grey-text text-darken-4">Tip kolone </label>
+                <label for="select_tip_{{$index}}" class="text-primary-color text-darken-4">Tip kolone </label>
               </div>
-              <div class="col s1 m2 text-lighten-4 input-field">
+            <!--<div class="col s2 m2 text-lighten-4 input-field">
+              <input id="table_column" type="text" class="validate grey lighten-3" ng-model=column.columnName>
+              <label for="table_column" class="text-primary-color text-darken-4">Naziv kolone</label>
+            </div>
+            <div class="col s1 m2 text-lighten-4 input-field">
+              <select id="select_tip" class="col s12 m12 grey lighten-3" ng-model="column.dataType" ng-options="type for type in addTableCtrl.dataTypes"></select>
+              <label for="select_tip" class="text-primary-color text-darken-4">Tip kolone </label>
+            </div>-->
+            <div class="col s1 m2 text-lighten-4 input-field">
+              <select id="select_tip" class="col s12 m12 grey lighten-3" ng-model="column.keyType" ng-options="key for key in addTableCtrl.keyTypes"></select>
+              <label for="select_tip" class="text-primary-color text-darken-4">Tip kljuca </label>
+            </div>
+            <div class="col s1 m3 text-lighten-4 input-field" ng-show="column.keyType=='FOREIGN KEY'">
+              <select id="select_keytipFK_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.relation"
+              ng-options="'Tabela - ' + reference.tableName + '    Kolona - ' + reference.columnName for reference in addTableCtrl.primaryKeyTables"></select>
+              <label for="select_keytipFK_{{$index}}" class="text-primary-color text-darken-4">Veza</label>
+            </div>
+            <div class="col s2 m2">
+              <!--<div class="row">
+                <input type="checkbox" class="white-text filled-in " id="nullable_checkBox" value="Nullable" ng-model="column.nullable" />
+                <label for="nullable_checkBox" class="white-text">Nullable</label>
+              </div>-->
+              <!--<div class="col s1 m2 text-lighten-4 input-field">
                 <select id="select_keytip_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.keyType" ng-options="key for key in addTableCtrl.keyTypes"
                 ng-change="addTableCtrl.uradiNesto(column.keyType, $index)"></select>
                 <label for="select_keytip_{{$index}}" class="grey-text text-darken-4">Tip kljuca </label>
-              </div>
-              <div class="col s1 m4 text-lighten-4 input-field" ng-show="column.keyType=='FOREIGN KEY'">
-                <select id="select_keytipFK_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.relation"
-                ng-options="'Tabela - ' + reference.tableName + ' Kolona - ' + reference.columnName for reference in addTableCtrl.primaryKeyTables"></select>
-                <label for="select_keytipFK_{{$index}}" class="grey-text text-darken-4">Tip kljuca </label>
-              </div>
+              </div>-->
               <div class="col s2 m2 ">
                 <div class="row">
                   <input type="checkbox" class="white-text filled-in " id="nullable_checkBox_{{$index}}" value="Nullable" ng-model="column.nullable" />
@@ -59,9 +76,9 @@
               <a class="btn-floating btn-large waves-effect waves-light deep-orange" ng-click="addTableCtrl.remove($index)"><i class="material-icons">delete</i></a>
             </div>
           </div>
-          <a class="waves-effect waves-light btn-large deep-orange right" ng-click="addTableCtrl.add()"><i class="material-icons right">add</i>Dodaj kolonu</a>
-          <a class="waves-effect waves-light btn-large deep-orange left" ng-click="addTableCtrl.createTable()"><i class="material-icons right">input</i>Kreiraj tabelu</a>
         </div>
+        <a class="waves-effect waves-light btn-large deep-orange right" ng-click="addTableCtrl.add()"><i class="material-icons right">add</i>Dodaj kolonu</a>
+        <a class="waves-effect waves-light btn-large deep-orange left" ng-click="addTableCtrl.createTable()"><i class="material-icons right">input</i>Kreiraj tabelu</a>
         <button type="button" name="button" ng-click="addTableCtrl.ispisi()"> Ispisi </button>
       </form>
     </div>

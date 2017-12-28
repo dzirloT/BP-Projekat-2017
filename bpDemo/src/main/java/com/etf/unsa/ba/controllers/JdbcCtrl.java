@@ -444,10 +444,8 @@ public class JdbcCtrl {
 			Kolona k = new Kolona ();
 			k = tabela.columns.get(i); 
 			
-			if(k.keyType.equals("FOREIGN KEY"))
-				constraint = true; 
-			
 			if(k.keyType.equals("FOREIGN KEY"))	{
+				constraint = true; 
 				boolean exists = false ; 
 				for(int j = 0; j < constraints.size(); j++) {
 					if(constraints.get(j).primaryKeyTable.equals(k.relation.tableName))		{
@@ -472,9 +470,9 @@ public class JdbcCtrl {
 			}
 			
 			if(i != tabela.columns.size() - 1)	{
-				query += ("\"" + k.columnName + "\" " + k.dataType);
+				query += (" \"" + k.columnName + "\" " + k.dataType);
 				
-				if(k.nullable && k.keyType.equals("none") && k.unique)	{
+				if(k.nullable && k.keyType.equals("none") && !k.unique)	{
 					if(k.dataType.equals("number"))
 						query += "(10), "; 
 					else if(k.dataType.equals("varchar2"))
@@ -489,26 +487,26 @@ public class JdbcCtrl {
 						else if(k.dataType.equals("char"))
 							query += "(10) ";
 						if(!k.nullable)	{
-							if(k.keyType.equals("none") && !k.unique)
+							if(!k.keyType.equals("PRIMARY KEY") && !k.unique)
 								query += " NOT NULL, ";
 							else
 								query += " NOT NULL "; 
 						}
 						if(k.unique)	{
-							if(!k.keyType.equals("none"))
+							if(k.keyType.equals("PRIMARY KEY"))
 								query += " UNIQUE "; 
 							else 
 								query += " UNIQUE, ";
 						}
 						if(k.keyType.equals("PRIMARY KEY"))
 							query += (" " + k.keyType + ", ");
-						else 
-							query += " ,"; 
+						/*else 
+							query += " ,"; */
 				}
 			}	else	{
 					if(k.keyType.equals("FOREIGN KEY"))
 						constraint = true;
-					query += ("\"" + k.columnName + "\" " + k.dataType);
+					query += (" \"" + k.columnName + "\" " + k.dataType);
 					
 					if(k.dataType.equals("number"))
 						query += "(10) "; 

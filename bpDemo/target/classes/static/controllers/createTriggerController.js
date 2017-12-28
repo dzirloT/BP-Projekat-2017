@@ -1,25 +1,25 @@
-app.controller('triggerController', function($log, $http, $location, validateCreateTrigger){
-ctrl=this;
+app.controller('triggerController', function($log, $http, $location, validateCreateTrigger) {
+  ctrl = this;
 
   this.triggerPodaci = {
-    title : "",
-    okidanje : "",
-    akcija : [],
-    table : "",
-    variable : "",
-    kod : "",
-    red : "",
+    title: "",
+    okidanje: "",
+    akcija: [],
+    table: "",
+    variable: "",
+    kod: "",
+    red: "",
 
   };
   this.red = false;
   this.greska = false;
   this.greske = {
-    title : "",
-    okidanje : "",
-    akcija : "",
-    table : "",
-    variable : "",
-    kod : "",
+    title: "",
+    okidanje: "",
+    akcija: "",
+    table: "",
+    variable: "",
+    kod: "",
   };
 
   this.createTriggerSuccess = {
@@ -34,22 +34,23 @@ ctrl=this;
    };
 
   ctrl.tableNames = [];
-   $http.post('http://localhost:8080/jdbc/getObjectNames/user_tables').then(
-     function successResponse(succResponse) {
-       $log.log(succResponse.data);
-       ctrl.tableNames = succResponse.data;
-       $(document).ready(function() {
+  $http.post('http://localhost:8080/jdbc/getObjectNames/user_tables').then(
+    function successResponse(succResponse) {
+      $log.log(succResponse.data);
+      ctrl.tableNames = succResponse.data;
+      $(document).ready(function() {
         $('select').material_select();
       });
-     }, function errorReponse(errResponse)  {
+    },
+    function errorReponse(errResponse) {
 
-     }
-   );
+    }
+  );
   $(document).ready(function() {
-     $('select').material_select();
-   });
-   $('#trigger_code').val('New Text');
-     $('#trigger_code').trigger('autoresize');
+    $('select').material_select();
+  });
+  $('#trigger_code').val('New Text');
+  $('#trigger_code').trigger('autoresize');
   $('#variable_decl').val('New Text');
   $('#variable_decl').trigger('autoresize');
 
@@ -84,4 +85,5 @@ this.zatvoriModal = function () {
   ctrl.modal['modal'] = true;
   ctrl.modal['modal open'] = false;
 }
+
 });

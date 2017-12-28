@@ -1,5 +1,5 @@
 <div class="triggerDiv" class="row">
-  <div class="row light-blue">
+  <div class="row dark-primary-color">
     <div id="modal1" ng-class="viewCtrl.modal" style="z-index: 1003;display: block;opacity: 1;transform: scaleX(1);top: 10%;" ng-show="viewCtrl.createViewSuccess.showModal">
       <div class="modal-content">
         <h4>{{viewCtrl.createViewSuccess.headerResponse}}</h4>
@@ -10,17 +10,18 @@
       </div>
     </div>
 
-    <div class="light-blue darken-1 z-depth-1">
+    <div class="default-primary-color darken-1 z-depth-1">
       <h1>
-        <h5 class="center grey-text text-lighten-4">Kreiranje pogleda</h5>
+        <h5 class="center text-primary-color text-lighten-4">Kreiranje pogleda</h5>
       </h1>
     </div>
+      <div class="row default-primary-color darken-1 z-depth-1">
     <form>
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <input id="view_title" type="text" class="validate grey lighten-3" ng-model="viewCtrl.viewPodaci.title">
-          <label for="view_title" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Naziv pogleda</label>
-          <label for="view_title" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.title}}</label>
+          <label for="view_title" class="text-primary-color text-darken-4" ng-show="!viewCtrl.greska">Naziv pogleda</label>
+          <label for="view_title" class="text-primary-color text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.title}}</label>
         </div>
       </div>
       <div class="row">
@@ -42,15 +43,15 @@
   <!--    <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <textarea id="kolone" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.kolone"></textarea>
-          <label for="kolone" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Alias.kolone (odvojiti zarezom)</label>
-          <label for="kolone" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.kolone}}</label>
+          <label for="kolone" class="text-primary-color text-darken-4" ng-show="!viewCtrl.greska">Alias.kolone (odvojiti zarezom)</label>
+          <label for="kolone" class="text-primary-color text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.kolone}}</label>
         </div>
       </div>
     <div class="row">
       <div class="col s6 m6 offset-s3 offset-m3 input-field">
         <textarea id="tabele" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.tabele"></textarea>
-        <label for="tabele" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Tabele alias (odvojiti zarezom)</label>
-        <label for="kolone" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.tabele}}</label>
+        <label for="tabele" class="text-primary-color text-darken-4" ng-show="!viewCtrl.greska">Tabele alias (odvojiti zarezom)</label>
+        <label for="kolone" class="text-primary-color text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.tabele}}</label>
       </div>
     </div>-->
 
@@ -58,13 +59,14 @@
       <div class="row">
         <div class="col s6 m6 offset-s3 offset-m3 input-field">
           <textarea id="uslov" class="materialize-textarea validate grey lighten-3" ng-model="viewCtrl.viewPodaci.uslov"></textarea>
-          <label for="uslov" class="grey-text text-darken-4" ng-show="!viewCtrl.greska">Where uslov</label>
-          <label for="uslov" class="grey-text text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.uslov}}</label>
+          <label for="uslov" class="text-primary-color text-darken-4" ng-show="!viewCtrl.greska">Where uslov</label>
+          <label for="uslov" class="text-primary-color text-darken-4" ng-show="viewCtrl.greska">{{viewCtrl.greske.uslov}}</label>
         </div>
       </div>
       <div class="container">
-        <a class="waves-effect waves-light btn deep-orange right" ng-click="viewCtrl.createView()">Kreiraj pogled</a>
+        <a class="waves-effect waves-light btn accent-color divider-color right" ng-click="viewCtrl.createView()">Kreiraj pogled</a>
       </div>
     </form>
+  </div>
   </div>
 </div>

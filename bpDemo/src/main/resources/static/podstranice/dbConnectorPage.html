@@ -1,5 +1,5 @@
 <div class="mainPageDiv" class="row">
-  <div class="row light-blue">
+  <div class="row dark-primary-color">
 
   <div id="modal1" ng-class="dbConnCtrl.modal"
     style="z-index: 1003;display: block;opacity: 1;transform: scaleX(1);top: 10%;" ng-show="dbConnCtrl.connectionSuccess.showModal">
@@ -12,49 +12,51 @@
     </div>
   </div>
 
-    <div class="row light-blue darken-1 z-depth-1">
-      <h1><h4 class="col offset-s2 offset-m2 grey-text text-lighten-4">Dobrodošli, {{dbConnCtrl.ime}} !</h4></h1>
+    <div class="row default-primary-color darken-1 z-depth-1">
+      <h1><h4 class="col offset-s2 offset-m2 text-primary-color text-lighten-4">Dobrodošli, {{dbConnCtrl.ime}} !</h4></h1>
     </div>
-    <form>
-      <div class="row">
-        <div class="col s3 m3 offseet-s3 offset-m3 input-field">
-          <input id="host" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.host">
-          <label for="host" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">  Ime hosta</label>
-          <label for="host" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.imeGreska}}</label>
-        </div>
-        <div class="col s3 m3 input-field">
-          <input id="port" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.port">
-          <label for="port" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">  Port aplikacije</label>
-          <label for="port" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.prezimeGreska}}</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s8 m8 offset-s2 offset-m2">
-          <div class="container">
-            <div class="input-field">
-              <input id="SID" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.sid">
-              <label for="SID" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">  SID</label>
-              <label for="SID" class="grey-text text-darken-4" ng-show="registrationCtrl.greska"> {{registrationCtrl.greske.mailGreska}}</label>
-            </div>
+    <div class="row default-primary-color darken-1 z-depth-1">
+      <form>
+        <div class="row">
+          <div class="col s3 m3 offseet-s3 offset-m3 input-field">
+            <input id="host" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.host">
+            <label for="host" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">  Ime hosta</label>
+            <label for="host" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.imeGreska}}</label>
           </div>
-          <div class="container">
-            <div class="input-field">
-              <input id="db_user_username" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.db_user_username">
-              <label for="db_user_username" class="grey-text text-darken-4" ng-show="!registrationCtrl.greska">  Korisničko ime za bazu</label>
-              <label for="db_user_username" class="grey-text text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.passwordGreska}}</label>
-            </div>
-          </div>
-          <div class="container">
-            <div class="input-field">
-              <input id="db_user_password" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.db_user_password">
-              <label for="db_user_password" class="grey-text text-darken-4">  Korisnički password za bazu</label>
-            </div>
-          </div>
-          <div class="container">
-            <button data-target="modal1" class="col offsset-s4 offset-m4 waves-effect waves-light btn deep-orange" class="btn modal-trigger" ng-click="dbConnCtrl.establishConnection()">Poveži se sa bazom</button>
+          <div class="col s3 m3 input-field">
+            <input id="port" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.port">
+            <label for="port" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">  Port aplikacije</label>
+            <label for="port" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.prezimeGreska}}</label>
           </div>
         </div>
-      </div>
-    </form>
+        <div class="row">
+          <div class="col s8 m8 offset-s2 offset-m2">
+            <div class="container">
+              <div class="input-field">
+                <input id="SID" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.sid">
+                <label for="SID" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">  SID</label>
+                <label for="SID" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska"> {{registrationCtrl.greske.mailGreska}}</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field">
+                <input id="db_user_username" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.db_user_username">
+                <label for="db_user_username" class="text-primary-color text-darken-4" ng-show="!registrationCtrl.greska">  Korisničko ime za bazu</label>
+                <label for="db_user_username" class="text-primary-color text-darken-4" ng-show="registrationCtrl.greska">  {{registrationCtrl.greske.passwordGreska}}</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field">
+                <input id="db_user_password" type="text" class="validate grey lighten-3" ng-model="dbConnCtrl.dbConnectionParams.db_user_password">
+                <label for="db_user_password" class="text-primary-color text-darken-4">  Korisnički password za bazu</label>
+              </div>
+            </div>
+            <div class="container">
+              <button data-target="modal1" class="col offsset-s4 offset-m4 waves-effect waves-light btn accent-color divider-color " class="btn modal-trigger" ng-click="dbConnCtrl.establishConnection()">Poveži se sa bazom</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
