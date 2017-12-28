@@ -6,7 +6,7 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
   this.brojTriggera = 0;
   this.brojProcedura = 0;
   this.brojPogleda = 0;
-
+    $http.post('http://localhost:8080/jdbc/meta').then(function nesto(nestO){}, function nestDrugo(nestoDrugo){});
   $http.get("http://localhost:8080/jdbc/getRowCount/user_tables").then(function successReponse(succResponse)  {
      $log.log(succResponse.data);
      dbObjectsCtrl.brojTabela = succResponse.data;

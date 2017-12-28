@@ -21,43 +21,49 @@
         </div>
         <div class="container">
           <div class="row z-depth-1" ng-repeat="column in addTableCtrl.table.columns track by $index">
-            <div class="col s2 m2 text-lighten-4 input-field">
-              <input id="table_column" type="text" class="validate grey lighten-3" ng-model=column.columnName>
-              <label for="table_column" class="grey-text text-darken-4">Naziv kolone</label>
-            </div>
-            <div class="col s1 m2 text-lighten-4 input-field">
-              <select id="select_tip" class="col s12 m12 grey lighten-3" ng-model="column.dataType" ng-options="type for type in addTableCtrl.dataTypes"></select>
-              <label for="select_tip" class="grey-text text-darken-4">Tip kolone </label>
-            </div>
-            <div class="col s1 m2 text-lighten-4 input-field">
-              <select id="select_tip" class="col s12 m12 grey lighten-3" ng-model="column.keyType" ng-options="key for key in addTableCtrl.keyTypes"></select>
-              <label for="select_tip" class="grey-text text-darken-4">Tip kljuca </label>
-            </div>
-            <div class="col s3 m3 offset-s1 offset-m1 ">
-              <div class="row">
-                <input type="checkbox" class="white-text filled-in " id="nullable_checkBox" value="Nullable" ng-model="column.nullable" />
-                <label for="nullable_checkBox" class="white-text">Nullable</label>
+            <div class="col s11 m11">
+              <div class="col s2 m2 text-lighten-4 input-field">
+                <input id="table_column" type="text" class="validate grey lighten-3" ng-model=column.columnName>
+                <label for="table_column" class="grey-text text-darken-4">Naziv kolone</label>
               </div>
-              <div class="row">
-                <input type="checkbox" class="white-text filled-in " id="unique_checkBox" value="Unique" ng-model="column.unique" />
-                <label for="unique_checkBox" class="white-text">Unique</label>
+              <div class="col s1 m2 text-lighten-4 input-field">
+                <select id="select_tip_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.dataType" ng-options="type for type in addTableCtrl.dataTypes"></select>
+                <label for="select_tip_{{$index}}" class="grey-text text-darken-4">Tip kolone </label>
               </div>
-              <div class="row">
-                <input type="checkbox" class="white-text filled-in " id="autoIncrement_checkBox" value="Auto increment " ng-model="column.autoIncrement" />
-                <label for="autoIncrement_checkBox" class="white-text">Auto increment</label>
+              <div class="col s1 m2 text-lighten-4 input-field">
+                <select id="select_keytip_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.keyType" ng-options="key for key in addTableCtrl.keyTypes"
+                ng-change="addTableCtrl.uradiNesto(column.keyType, $index)"></select>
+                <label for="select_keytip_{{$index}}" class="grey-text text-darken-4">Tip kljuca </label>
               </div>
+              <div class="col s1 m4 text-lighten-4 input-field" ng-show="column.keyType=='FOREIGN KEY'">
+                <select id="select_keytipFK_{{$index}}" class="col s12 m12 grey lighten-3" ng-model="column.relation"
+                ng-options="'Tabela - ' + reference.tableName + ' Kolona - ' + reference.columnName for reference in addTableCtrl.primaryKeyTables"></select>
+                <label for="select_keytipFK_{{$index}}" class="grey-text text-darken-4">Tip kljuca </label>
+              </div>
+              <div class="col s2 m2 ">
+                <div class="row">
+                  <input type="checkbox" class="white-text filled-in " id="nullable_checkBox_{{$index}}" value="Nullable" ng-model="column.nullable" />
+                  <label for="nullable_checkBox_{{$index}}" class="white-text">Nullable</label>
+                </div>
+                <div class="row">
+                  <input type="checkbox" class="white-text filled-in " id="unique_checkBox_{{$index}}" value="Unique" ng-model="column.unique" />
+                  <label for="unique_checkBox_{{$index}}" class="white-text">Unique</label>
+                </div>
+                <div class="row">
+                  <input type="checkbox" class="white-text filled-in " id="autoIncrement_checkBox_{{$index}}" value="Auto increment " ng-model="column.autoIncrement" />
+                  <label for="autoIncrement_checkBox_{{$index}}" class="white-text">Auto increment</label>
+                </div>
+              </div>
+            </div>
+            <div class="col s1 m1">
+              <a class="btn-floating btn-large waves-effect waves-light deep-orange" ng-click="addTableCtrl.remove($index)"><i class="material-icons">delete</i></a>
             </div>
           </div>
+          <a class="waves-effect waves-light btn-large deep-orange right" ng-click="addTableCtrl.add()"><i class="material-icons right">add</i>Dodaj kolonu</a>
+          <a class="waves-effect waves-light btn-large deep-orange left" ng-click="addTableCtrl.createTable()"><i class="material-icons right">input</i>Kreiraj tabelu</a>
         </div>
         <button type="button" name="button" ng-click="addTableCtrl.ispisi()"> Ispisi </button>
       </form>
     </div>
-    <div class="" style="background-color:lightgrey;" ng-repeat="obbjjj in addTableCtrl.columnArray track by $index">
-      <input type="text" name="" value="" ng-model="obbjjj.nesto">
-      <br>
-      <button type="button" name="button" style="padding:10px;" ng-click="addTableCtrl.remove($index)">-</button>
-    </div>
-    <button type="button" name="button" style="padding:10px;" ng-click="addTableCtrl.add()">+</button>
-
   </div>
 </div>

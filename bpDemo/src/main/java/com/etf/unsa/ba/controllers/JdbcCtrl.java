@@ -1,5 +1,7 @@
 package com.etf.unsa.ba.controllers;
 
+import java.awt.PageAttributes.MediaType;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -17,6 +19,8 @@ import javax.servlet.ServletException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("jdbc")
@@ -297,11 +301,40 @@ public class JdbcCtrl {
 			// TODO: handle exception
 		}
 	}
+	@RequestMapping(value = "/primaryKeys", method = RequestMethod.GET, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)	
+	public @ResponseBody ArrayList<Relation> primaryKeys()	{
+		ArrayList<Relation> relacije = new ArrayList<Relation>();
+		
+		try {
+			DatabaseMetaData meta = oracleConn.getMetaData(); 
+			ResultSet relevantTables = oracleConn.createStatement().executeQuery("SELECT object_name FROM all_objects WHERE object_type = 'TABLE' " 
+					+ " AND created >= TO_DATE('20171220', 'YYYYMMDD') ");
+			while(relevantTables.next())	{
+				String tableName = relevantTables.getString(1); 
+				ResultSet rel = meta.getPrimaryKeys("", "BP07", tableName); 
+				if(rel.next())	{
+					Relation relacija = new Relation(); 
+					relacija.tableName = rel.getString(3);
+					relacija.columnName = rel.getString(4); 
+					
+					relacije.add(relacija); 
+				}
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		for(int i = 0; i < relacije.size(); i++)
+			System.out.println("Tabela *" + relacije.get(i).tableName + "* ima primary key constraint na koloni *" + relacije.get(i).columnName + "* w");
+		return relacije;
+	}
 	@RequestMapping("/meta")
 	public void metadata(){
 		try {
 			Statement s=con.createStatement();
 			DatabaseMetaData md=con.getMetaData();
+			
 			ResultSet rsmdt=md.getTables("", "", "%", null);
 			ResultSet rs=s.executeQuery("select * from korisnik;");
 			
@@ -384,6 +417,172 @@ public class JdbcCtrl {
 		return desc;
 	}
 	
+	private void create_AutoIncrement_Trigger(String nazivTabele, String nazivKolone)	{
+		String sequenceQuery = "CREATE SEQUENCE \"seq_" + nazivTabele + "_" + nazivKolone 
+				+ "\" MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 20";
+		
+		String triggerQuery = "CREATE OR REPLACE TRIGGER \"sequence_trigger_" 
+				+ nazivTabele + "_" + nazivKolone + "\" BEFORE INSERT ON \"" + nazivTabele + "\" FOR EACH ROW BEGIN SELECT \"seq_"
+				+ nazivTabele + "_" + nazivKolone + "\".NEXTVAL INTO :new.\"" + 
+				nazivKolone + "\" FROM dual; END";
+		try {
+			oracleConn.createStatement().execute(sequenceQuery); 
+			oracleConn.createStatement().execute(triggerQuery);
+			
+		} catch (Exception e) {
+			System.out.println("Pada kreiranje auto incrementa");
+			System.out.println(e.getMessage());
+		}
+	}
+	@RequestMapping("/createTable")
+	public String createTable(@RequestBody final Tabela tabela )	{
+
+		boolean constraint = false; 
+		ArrayList<Constraint> constraints = new ArrayList<Constraint>(); 
+		String query = "CREATE TABLE \"" + tabela.name + "\" ( "; 
+		for(int i = 0; i < tabela.columns.size(); i++)	{
+			Kolona k = new Kolona ();
+			k = tabela.columns.get(i); 
+			
+			if(k.keyType.equals("FOREIGN KEY"))
+				constraint = true; 
+			
+			if(k.keyType.equals("FOREIGN KEY"))	{
+				boolean exists = false ; 
+				for(int j = 0; j < constraints.size(); j++) {
+					if(constraints.get(j).primaryKeyTable.equals(k.relation.tableName))		{
+						constraints.get(j).foreignKeyPart += ("\"" + k.columnName + "\" , "); 
+						constraints.get(j).primaryKeyPart += ("\"" + k.relation.columnName + "\" , "); 
+						exists = true; 
+						break; 
+					}
+				}
+				
+				if(!exists)	{
+					{
+						Constraint c = new Constraint(); 
+						c.primaryKeyTable = k.relation.tableName; 
+						c.foreignKeyPart = "CONSTRAINT \"FK_" + tabela.name + "_" + k.relation.tableName 
+								+ "\" FOREIGN KEY (\"" + k.columnName + "\", ";
+						c.primaryKeyPart = " REFERENCES \"" + k.relation.tableName + "\"(\"" + k.relation.columnName + "\" , ";
+						
+						constraints.add(c); 
+					}
+				}
+			}
+			
+			if(i != tabela.columns.size() - 1)	{
+				query += ("\"" + k.columnName + "\" " + k.dataType);
+				
+				if(k.nullable && k.keyType.equals("none") && k.unique)	{
+					if(k.dataType.equals("number"))
+						query += "(10), "; 
+					else if(k.dataType.equals("varchar2"))
+						query += "(255), ";
+					else if(k.dataType.equals("char"))
+						query += "(10), ";
+				}	else	{
+						if(k.dataType.equals("number"))
+							query += "(10) "; 
+						else if(k.dataType.equals("varchar2"))
+							query += "(255) ";
+						else if(k.dataType.equals("char"))
+							query += "(10) ";
+						if(!k.nullable)	{
+							if(k.keyType.equals("none") && !k.unique)
+								query += " NOT NULL, ";
+							else
+								query += " NOT NULL "; 
+						}
+						if(k.unique)	{
+							if(!k.keyType.equals("none"))
+								query += " UNIQUE "; 
+							else 
+								query += " UNIQUE, ";
+						}
+						if(k.keyType.equals("PRIMARY KEY"))
+							query += (" " + k.keyType + ", ");
+						else 
+							query += " ,"; 
+				}
+			}	else	{
+					if(k.keyType.equals("FOREIGN KEY"))
+						constraint = true;
+					query += ("\"" + k.columnName + "\" " + k.dataType);
+					
+					if(k.dataType.equals("number"))
+						query += "(10) "; 
+					else if(k.dataType.equals("varchar2"))
+								query += "(255) ";
+					else if(k.dataType.equals("char"))
+								query += "(10) ";
+					if(!k.nullable)	
+						query += " NOT NULL ";
+					if(k.unique)
+						query += " UNIQUE ";
+					if(k.keyType.equals("PRIMARY KEY"))
+						query += (" " + k.keyType + " ");
+					if(constraint)
+						query += ", "; 
+				}
+		}
+		if(constraint)	{
+			for(int i = 0; i < constraints.size(); i++)	{
+					constraints.get(i).foreignKeyPart = new String(
+							constraints.get(i).foreignKeyPart.substring(
+									0, constraints.get(i).foreignKeyPart.length() - 2
+									) + " ) "
+							);
+					constraints.get(i).primaryKeyPart = new String(
+							constraints.get(i).primaryKeyPart.substring(
+									0, constraints.get(i).primaryKeyPart.length() - 2
+									) + " ) "
+							);
+					query += (constraints.get(i).foreignKeyPart + constraints.get(i).primaryKeyPart + " ");
+					if(i != constraints.size() - 1)	
+						query += " , "; 
+					else 
+						query += " "; 
+						
+			}
+			for(int i = 0; i < constraints.size(); i++)	{
+				System.out.println(constraints.get(i).foreignKeyPart + constraints.get(i).primaryKeyPart);
+			}
+		}
+		query += ")";
+		try {
+			System.out.println(query);
+			oracleConn.createStatement().execute(query);
+			System.out.println("Tabela je kreirana");
+			for(int i = 0; i < tabela.columns.size(); i++)	{
+				Kolona k = new Kolona(); 
+				k = tabela.columns.get(i); 
+				if(k.autoIncrement && k.dataType.equals("number"))
+					create_AutoIncrement_Trigger(tabela.name, k.columnName);
+				System.out.println("Trigger za kolonu " + k.columnName + " je kreiran");
+			}
+			/*System.out.println("Brisemo sada malo...");
+			
+			oracleConn.createStatement().execute("DROP TABLE \"" + tabela.name + "\"");
+			System.out.println("Tabela obrisana");
+			
+			for(int i = 0; i < tabela.columns.size(); i++)	{
+				Kolona k = new Kolona(); 
+				k = tabela.columns.get(i); 
+				if(k.autoIncrement)	{
+					oracleConn.createStatement().execute("DROP SEQUENCE \"seq_" + tabela.name + "_" + k.columnName + "\" ");
+					System.out.println("Sekvenca obrisana");
+				}
+			}*/
+			
+		} catch (Exception e) {
+			System.out.println("Pada funkcija za kreiranje tabele");
+			System.out.println(e.getMessage());
+		}
+			
+		return "Nije bitno sad"; 
+	}
+	
 	private static class objectDescName	{
 		public String objectName;
 		public String name; 
@@ -424,5 +623,27 @@ public class JdbcCtrl {
 		public ArrayList<String> tabele;
 		public ArrayList<String> kolone;
 		public String uslov;
+	}
+	private static class Kolona	{
+		public String columnName; 
+		public String dataType; 
+		public String keyType; 
+		public Relation relation; 
+		public boolean nullable; 
+		public boolean unique; 
+		public boolean autoIncrement; 
+	}
+	private static class Tabela	{
+		public String name; 
+		public ArrayList<Kolona> columns; 
+	}
+	private static class Relation	{
+		public String tableName; 
+		public String columnName;
+	}
+	private static class Constraint {
+		public String primaryKeyTable; 
+		public String foreignKeyPart; 
+		public String primaryKeyPart; 
 	}
 }
