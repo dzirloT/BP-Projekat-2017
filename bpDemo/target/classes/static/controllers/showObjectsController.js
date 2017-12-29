@@ -3,6 +3,7 @@ app.controller('showObjectsController', function ($log, $http, $location, $route
   showObjCtrl = this;
   this.objectNames = [];
 
+
   $http.post('http://localhost:8080/jdbc/getObjectNames/' + $routeParams.objectsName).then(
     function successResponse(succResponse) {
       $log.log(succResponse.data);
