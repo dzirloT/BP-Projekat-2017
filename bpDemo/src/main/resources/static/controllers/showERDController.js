@@ -45,7 +45,7 @@ app.controller('showERDController', function($scope, $http, $log, download,$root
         background: "AntiqueWhite"
       });
       $log.log(img);
-      download.fromData(img, "image/jpeg", "ERD.jpeg");
+      download.fromData(img, "image/png", "ERD.png");
     };
 
 });
