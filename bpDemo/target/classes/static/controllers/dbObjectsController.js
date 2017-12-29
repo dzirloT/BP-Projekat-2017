@@ -38,5 +38,8 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
   this.addTable = function()  {
     $location.path('addTablePage');
   }
+  this.showERD = function(){
+    $location.path('showERDPage')
+  }
 
 });

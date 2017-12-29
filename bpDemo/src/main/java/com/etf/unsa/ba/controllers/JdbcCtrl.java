@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import org.mockito.internal.util.collections.ArrayUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -384,6 +385,96 @@ public class JdbcCtrl {
 		return desc;
 	}
 	
+	@RequestMapping("/showERD")
+	public ArrayList<ERD> showERD() throws SQLException {
+		System.out.println("Radi showERD");
+		ArrayList<ERD> erd = new ArrayList<ERD>();
+		try {
+			String sql;
+			
+			sql = "SELECT utc.table_name tableName, utc.column_name columnName, "
+				+ "    CASE "
+				+ "    WHEN (utc.table_name, utc.column_name) IN ( "
+				+ "        SELECT uc.table_name, ucc.column_name "
+				+ "        FROM USER_CONSTRAINTS uc, USER_CONS_COLUMNS ucc "
+				+ "        WHERE ucc.table_name = uc.table_name "
+				+ "            AND ucc.constraint_name = uc.constraint_name "
+				+ "            AND uc.constraint_type IN ('P', 'R')) THEN 'true' "
+				+ "    ELSE 'false' END AS isKey "
+				+ "FROM USER_TAB_COLUMNS utc, USER_OBJECTS uo "
+				+ "WHERE uo.created >= TO_DATE('20171220', 'YYYYMMDD') "
+				+ "    AND utc.table_name = uo.object_name " 
+				+ "    AND uo.object_type = 'TABLE' "
+				+ "ORDER BY utc.table_name ASC";
+
+			
+			ResultSet rs = oracleConn.createStatement().executeQuery(sql);
+			System.out.println("Dobavio podatke.");
+			rs.next();
+			while(!rs.isAfterLast()) {
+				erd.add(new ERD());
+				//postavljanje varijable table name
+				erd.get(erd.size() - 1).tableName = rs.getString("tableName");
+				//varijabla za provjeru DO-WHILE uslova
+				String lastTableName = erd.get(erd.size() - 1).tableName;
+				
+				do {
+					if(rs.getString("isKey").equals("false"))
+						erd.get(erd.size() - 1).columns.add(new ERDcolumn(rs.getString("columnName"), false));
+					else
+						erd.get(erd.size() - 1).columns.add(new ERDcolumn(rs.getString("columnName"), true));
+					System.out.println(lastTableName + " " + rs.getString("columnName"));
+				}while(rs.next() && rs.getString("tableName").equals(lastTableName));
+				
+				String sqlFK = "SELECT table_name tableName "
+							 + "FROM USER_CONSTRAINTS "
+							 + "WHERE constraint_type = 'R' "
+							 + "	AND r_constraint_name IN( " 
+							 + "		SELECT constraint_name "
+							 + "		FROM ALL_CONSTRAINTS "
+							 + "		WHERE table_name = '" + lastTableName + "' "
+							 + "			AND constraint_type = 'P')";
+				ResultSet rsFK = oracleConn.createStatement().executeQuery(sqlFK);
+				while(rsFK.next()) {
+					erd.get(erd.size() - 1).relations.add(new ERDrelation(rsFK.getString("tableName")));
+				}
+				rsFK.close();
+			}
+			rs.close();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println("Zavrsio showERD");
+		return erd;
+	}
+	
+	private static class ERD{
+		public String tableName;
+		public ArrayList<ERDcolumn> columns;
+		public ArrayList<ERDrelation> relations;
+		public ERD() {
+			columns = new ArrayList<ERDcolumn>();
+			relations = new ArrayList<ERDrelation>();
+		}
+	}
+	private static class ERDcolumn{
+		public String columnName;
+		public boolean isKey; 
+		
+		public ERDcolumn(String columnName, boolean isKey){
+			this.columnName = columnName;
+			this.isKey = isKey;
+		}
+	}
+	public static class ERDrelation{
+		public String toTable;
+		public ERDrelation(String toTable) {
+			this.toTable = toTable;
+		}
+	}
+	
 	private static class objectDescName	{
 		public String objectName;
 		public String name; 
@@ -425,4 +516,5 @@ public class JdbcCtrl {
 		public ArrayList<String> kolone;
 		public String uslov;
 	}
+	
 }
