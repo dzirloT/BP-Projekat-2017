@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword|textVisiblePassword"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="23dp"
             tools:layout_editor_absoluteY="314dp"
             tools:text="Password" />
