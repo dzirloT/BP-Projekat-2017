@@ -2,7 +2,9 @@ app.controller('showObjectsController', function ($log, $http, $location, $route
 
   showObjCtrl = this;
   this.objectNames = [];
-
+  this.tabele = false;
+  if($routeParams.objectsName == 'user_tables')
+    showObjCtrl.tabele = true;
 
   $http.post('http://localhost:8080/jdbc/getObjectNames/' + $routeParams.objectsName).then(
     function successResponse(succResponse) {
@@ -16,7 +18,8 @@ app.controller('showObjectsController', function ($log, $http, $location, $route
   this.showObject = function (object) {
     $location.path('showObjectsPage/' + $routeParams.objectsName + "/" + object);
   }
-  this.addIndex = function (object){
+
+  this.addObject = function (object){
     $location.path('createIndex/' + object);
   }
 });

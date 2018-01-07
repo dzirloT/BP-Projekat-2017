@@ -6,6 +6,7 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
   this.brojTriggera = 0;
   this.brojProcedura = 0;
   this.brojPogleda = 0;
+
     $http.post('http://localhost:8080/jdbc/meta').then(function nesto(nestO){}, function nestDrugo(nestoDrugo){});
   $http.get("http://localhost:8080/jdbc/getRowCount/user_tables").then(function successReponse(succResponse)  {
      $log.log(succResponse.data);
@@ -34,9 +35,15 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
 
   this.showObjects = function (objectName)  {
       $location.path('showObjectsPage/' + objectName);
-  }
-  this.addTable = function()  {
-    $location.path('addTablePage');
-  }
+  };
+  this.addObject = function(objectName)  {
+    $log.log(objectName);
+    if(objectName == 'table')
+      $location.path('createIndex');
+    else if(objectName == 'trigger')
+      $location.path('createTrigger');
+    else if(objectName == 'view')
+      $location.path('createView');
+  };
 
 });

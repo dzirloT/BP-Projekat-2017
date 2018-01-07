@@ -16,8 +16,7 @@
              </a>
              <ul>
                <li><a class="btn-floating waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_tables')"><i class="material-icons">search</i></a></li>
-               <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addTable()"><i class="material-icons">add</i></a></li>
-               <li><a class="btn-floating accent-color divider-color"><i class="material-icons">insert_chart</i></a></li>
+               <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addObject('table')"><i class="material-icons">add</i></a></li>
              </ul>
            </div>
           </div>
@@ -27,19 +26,27 @@
           </div>
         </div>
       </div>
+
       <div class="col s6 m3">
         <div class="card">
           <div class="card-image">
             <img src="pictures/triggeri.png">
             <span class="card-title text-primary-color text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_triggers')"><i class="material-icons">search</i></a>
+              <div class="fixed-action-btn horizontal" style="position:absolute">
+               <a class="btn-floating  accent-color">
+                 <i class="large material-icons">mode_edit</i>
+               </a>
+               <ul>
+                 <li><a class="btn-floating waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_triggers')"><i class="material-icons">search</i></a></li>
+                 <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addObject('trigger')"><i class="material-icons">add</i></a></li>
+               </ul>
+             </div>
           </div>
           <div class="card-content">
             <h1><h4>Triggeri</h4></h1>
             <p>U bazi postoji {{dbObjectsCtrl.brojTriggera}} triggera</p>
           </div>
         </div>
-      </div>
     </div>
 
     <div class="row">
@@ -48,7 +55,15 @@
           <div class="card-image">
             <img src="pictures/procedure.png">
             <span class="card-title text-primary-color text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_procedures')"><i class="material-icons">search</i></a>
+              <div class="fixed-action-btn horizontal" style="position:absolute">
+               <a class="btn-floating  accent-color">
+                 <i class="large material-icons">mode_edit</i>
+               </a>
+               <ul>
+                 <li><a class="btn-floating waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_procedures')"><i class="material-icons">search</i></a></li>
+                 <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addObject('procedure')"><i class="material-icons">add</i></a></li>
+               </ul>
+             </div>
           </div>
           <div class="card-content">
             <h1><h4>Procedura</h4></h1>
@@ -61,7 +76,15 @@
           <div class="card-image">
             <img src="pictures/pogledi.png">
             <span class="card-title text-primary-color text-darken-4"></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_views')"><i class="material-icons">search</i></a>
+              <div class="fixed-action-btn horizontal" style="position:absolute">
+               <a class="btn-floating  accent-color">
+                 <i class="large material-icons">mode_edit</i>
+               </a>
+               <ul>
+                 <li><a class="btn-floating waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.showObjects('user_views')"><i class="material-icons">search</i></a></li>
+                 <li><a class="btn-floating  waves-effect waves-light accent-color divider-color" ng-click="dbObjectsCtrl.addObject('view')"><i class="material-icons">add</i></a></li>
+               </ul>
+             </div>
           </div>
           <div class="card-content">
             <h1><h4>Pogledi</h4></h1>
