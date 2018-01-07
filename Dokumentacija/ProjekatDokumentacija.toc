@@ -17,4 +17,4 @@
 \contentsline {section}{\numberline {3.4}OracleDB}{10}{section.3.4}
 \contentsline {section}{\numberline {3.5}Android}{10}{section.3.5}
 \contentsline {chapter}{\numberline {4}Web aplikacija}{11}{chapter.4}
-\contentsline {chapter}{\numberline {5}Android aplikacija}{12}{chapter.5}
+\contentsline {chapter}{\numberline {5}Android aplikacija}{21}{chapter.5}
