@@ -35,6 +35,7 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
 
   this.showObjects = function (objectName)  {
       $location.path('showObjectsPage/' + objectName);
+<<<<<<< HEAD
   };
   this.addObject = function(objectName)  {
     $log.log(objectName);
@@ -45,5 +46,14 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
     else if(objectName == 'view')
       $location.path('createView');
   };
+=======
+  }
+  this.addTable = function()  {
+    $location.path('addTablePage');
+  }
+  this.showERD = function(){
+    $location.path('showERDPage')
+  }
+>>>>>>> 82849290e969c1fe04b0076fa63084fa53825ef3
 
 });

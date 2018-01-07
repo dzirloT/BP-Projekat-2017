@@ -218,22 +218,18 @@ Pored mogućnosti za odabirom željenih objekata, korisnik će moći pristupiti 
 \section{Upravljanje objektima vezanih za bazu i/ili tabelu}
 Nakon odabira tabele, korisniku se prikazuju svi kreirani objekti koji su vezani za nju. Pod objektima se smatraju indeksi, funkcije, trigeri, pogledi, greške i sekvence. Prikazani podaci će biti kategorizirani te će biti omogućen pristup  svakom objektu u cilju pregleda, izmjene ili brisanja istog. Rad nad objektima će se vršiti putem grafičkog interfejsa. Unutar ove funkcionalnosti se podrazumijeva:
 	\begin{itemize}
-		\item Kreiranje, uređivanje i brisanje objekata baze;		
-		\item Kreiranje, uređivanje i brisanje tabela;
+		\item Kreiranje objekata baze;		
+		\item Kreiranje tabela;
 		
-		\item Kreiranje, uređivanje i brisanje pogleda;
+		\item Kreiranje pogleda;
 		
-		\item Kreiranje, uređivanje i brisanje kolona;
+		\item Kreiranje procedura;
 		
-		\item Kreiranje, uređivanje i brisanje argumenata funkcija i procedura;
+		\item Kreiranje  trigera;
 		
-		\item Kreiranje, uređivanje i brisanje error-a;
+		\item Kreiranje PL/SQL, source objekata;
 		
-		\item Kreiranje, uređivanje i brisanje procedura;
-		
-		\item Kreiranje, uređivanje i brisanje trigera;
-		
-		\item Kreiranje, uređivanje i brisanje PL/SQL, source objekata.
+		\item Prikaz ERD baze.
 	\end{itemize}
 
 \section{Pregled svih korisnika baze podataka}
@@ -249,19 +245,14 @@ Obuhvata:
 
 \item Pregled svih pogleda;
 
-\item Pregled svih kolona;
-
 \item Pregled svih argumenata funkcija i procedura;
-
-\item Pregled svih error-a;
 
 \item Pregled svih procedura;
 
 \item Pregled svih trigera;
 
-\item Pregled veličina svih objekata;
-
 \item Pregled svih PL/SQL, source objekata;
+\item Prikaz ERD baze.
 \end{itemize}
 \section{Prikaz, kreiranje, uređivanje i brisanje podataka unutar baze}
 Data funkcionalnost omogućava korisniku da vidi podatke u tabelama baze, te da dodaje nove redove, uređuje i briše postojeće redove.
@@ -328,6 +319,117 @@ Osnovne komponente Android aplikacije su:
 	\item Content provider-i – Content provider upravlja sa dijeljenim skupom podataka aplikacije. Takvi podaci mogu biti sačuvani na file sistemu, SQLite bazi , web-u ili nekoj drugoj lokaciji.
 	\item Broadcast resiveri – Broadcast resiver je komponenta koja odgovara na broadcast objave. Mnogi broadcasti potiču od samog sistema – npr. obavještenje da je baterija skoro prazna. Broadcasti nemaju svoj korisnički interfejs, ali mogu kreirati notifikaciju u statusnoj traci.
 \end{itemize}
+
+\chapter{Web aplikacija}
+
+Izgled naslovne stranice prikazan je na sljedećoj slici:
+
+
+\chapter{Android aplikacija}
+
+Početni ekran Android aplikacije:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{a.jpg}
+	\end{center}
+	\caption{Početna aktivnost}
+\end{figure}
+\newpage
+Nakon unosa odgovarajućih podataka, pritisnemo dugme za prijavu:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{b.jpg}
+	\end{center}
+	\caption{Početna aktivnost nakon unosa podataka}
+\end{figure}
+
+Nakon uspješne prijave, prelazi se u novu aktivnost na kojoj je prikazana lista objekata baze. U slučaju neuspjeha prikaže se poruka o grešci.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{c.jpg}
+	\end{center}
+	\caption{Lista objekata baze}
+\end{figure}
+\newpage
+Nakon odabira opcije Tables, prikazuje se lista istih.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{d.jpg}
+	\end{center}
+	\caption{Lista tabela}
+\end{figure}
+
+Nakon odabira tabele otvara se nova aktivnost na kojoj su prikazani detalji o tabele.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{e.jpg}
+	\end{center}
+	\caption{Prikaz detalja odabrane tabele}
+\end{figure}
+\newpage
+Nakon odabira opcije Views, prikazuje se lista istih.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{f.jpg}
+	\end{center}
+	\caption{Lista pogleda}
+\end{figure}
+
+Nakon odabira pogleda otvara se nova aktivnost na kojoj su prikazani detalji o pogledu.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{g.jpg}
+	\end{center}
+	\caption{Prikaz detalja odabranog pogleda}
+\end{figure}
+\newpage
+Nakon odabira opcije Triggers, prikazuje se lista istih.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{h.jpg}
+	\end{center}
+	\caption{Lista triggera}
+\end{figure}
+Nakon odabira triggera otvara se nova aktivnost na kojoj su prikazani detalji o triggeru.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{i.jpg}
+	\end{center}
+	\caption{Prikaz detalja odabranog triggera}
+\end{figure}
+\newpage
+Nakon odabira opcije Procedures, prikazuje se lista istih.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{j.jpg}
+	\end{center}
+	\caption{Lista procedura}
+\end{figure}
+Nakon odabira procedure otvara se nova aktivnost na kojoj su prikazani detalji o proceduri.
+
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{k.jpg}
+	\end{center}
+	\caption{Prikaz detalja odabranog procedure}
+\end{figure}
+\newpage
+Nakon odabira opcije Indexes, prikazuje se lista istih.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{l.jpg}
+	\end{center}
+	\caption{Lista indeksa}
+\end{figure}
+
+Nakon odabira indeksa otvara se nova aktivnost na kojoj su prikazani detalji o indeksu.
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{m.jpg}
+	\end{center}
+	\caption{Prikaz detalja odabranog indeksa}
+\end{figure}
+
 
 
 \end{document}
