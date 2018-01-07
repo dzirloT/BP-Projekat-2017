@@ -35,25 +35,18 @@ app.controller('dbObjectsController', function($log, $http, $location, $rootScop
 
   this.showObjects = function (objectName)  {
       $location.path('showObjectsPage/' + objectName);
-<<<<<<< HEAD
   };
   this.addObject = function(objectName)  {
     $log.log(objectName);
     if(objectName == 'table')
-      $location.path('createIndex');
+      $location.path('addTablePage');
     else if(objectName == 'trigger')
       $location.path('createTrigger');
     else if(objectName == 'view')
       $location.path('createView');
   };
-=======
-  }
-  this.addTable = function()  {
-    $location.path('addTablePage');
-  }
   this.showERD = function(){
     $location.path('showERDPage')
   }
->>>>>>> 82849290e969c1fe04b0076fa63084fa53825ef3
 
 });
