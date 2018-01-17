@@ -18,3 +18,16 @@
 \contentsline {section}{\numberline {3.5}Android}{10}{section.3.5}
 \contentsline {chapter}{\numberline {4}Web aplikacija}{11}{chapter.4}
 \contentsline {chapter}{\numberline {5}Android aplikacija}{21}{chapter.5}
+\contentsline {chapter}{\numberline {6}Optimizacija upita i transakcije}{28}{chapter.6}
+\contentsline {section}{\numberline {6.1}Login transakcija}{28}{section.6.1}
+\contentsline {section}{\numberline {6.2}Funkcija getRowCount()}{28}{section.6.2}
+\contentsline {section}{\numberline {6.3}Funkcija getNames()}{29}{section.6.3}
+\contentsline {section}{\numberline {6.4}Funkcija getColumnNames()}{29}{section.6.4}
+\contentsline {section}{\numberline {6.5}Funkcija objectsMetaData()}{29}{section.6.5}
+\contentsline {section}{\numberline {6.6}Funkcija createView()}{29}{section.6.6}
+\contentsline {section}{\numberline {6.7}Funkcija createTrigger()}{30}{section.6.7}
+\contentsline {section}{\numberline {6.8}Funkcija primaryKeys()}{31}{section.6.8}
+\contentsline {section}{\numberline {6.9}Funkcija createIndex()}{31}{section.6.9}
+\contentsline {section}{\numberline {6.10}Funkcija showERD()}{32}{section.6.10}
+\contentsline {section}{\numberline {6.11}Funkcija create\_AutoIncrement\_Trigger()}{33}{section.6.11}
+\contentsline {section}{\numberline {6.12}Funkcija createTable()}{33}{section.6.12}

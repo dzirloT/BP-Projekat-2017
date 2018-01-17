@@ -39,6 +39,8 @@
 	urlcolor=black
 }
 
+
+
 \setlength{\epigraphwidth}{.7\textwidth}
 \usepackage{etoolbox}
 \makeatletter
@@ -600,6 +602,169 @@ Nakon odabira indeksa otvara se nova aktivnost na kojoj su prikazani detalji o i
 	\caption{Prikaz detalja odabranog indeksa}
 \end{figure}
 
+\chapter{Optimizacija upita i transakcije}
 
+\section{Login transakcija}
+
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{LoginDiagram.jpg}
+	\end{center}
+	\caption{Login}
+\end{figure}
+
+\section{Funkcija getRowCount()}
+
+	\textbf{SELECT COUNT(*) as brojRedova FROM + objectName}
+
+Prethodni upit vraća broj redova ciljanog objekta (objectName). U aplikaciji, kroz ovaj upit se pribavljaju informacije o broju korisničkih tabela (tabela unutar sheme), broju procedura, broju pogleda i broju trigera (napomena: trigeri predstavljaju poseban vid procedura koji se indirektno koriste. To su procedure koje se izvršavaju u pozadini).
+
+\section{Funkcija getNames()}
+
+	\textbf{SELECT * FROM + objectName} \\
+	\textbf{SELECT + nazivKolone + FROM + objectName}
+
+
+Prvi upit se koristi za pribavljanje odgovarajućih podataka koje će olakšati dobavljanje željenih informacija iz drugog upita. Drugi upit dobavlja nazive kolona (nazivKolone) iz tabele objectName. Tabela koja je od interesa u ovoj metodi je user\_tables. 
+Napomena: u metodi getTableColumns() korišten je identičan prvi upit za pribavljanje naziva kolona tabele objectName.
+
+\section{Funkcija getColumnNames()}
+
+\textbf{	SELECT * FROM USER\_TAB\_COLUMNS} \\
+\textbf{SELECT + nazivTabele + , + nazivKolone + FROM USER\_TAB\_COLUMNS}
+
+Kao u prethodnoj metodi, prvi upit se korsiti za pribavljanje podataka. Drugi upit vraća nazive svih korisničkih tabela zajedno sa nazivima kolona pripadajućih tabela.
+
+
+\section{Funkcija objectsMetaData()}
+
+	\textbf{SELECT * FROM + params.objectName} \\
+	\textbf{SELECT * FROM + params.objectName + WHERE + columnName += params.name}
+
+Kao u prethodna dva slučaja, prvi upit dobavlja informacije koje će biti korištene u narednom upitu (pribavljaju se nazivi određenih kolona). Drugi upit ima u cilju vraćanje metapodataka objekta (u ovom slučaju tabela prosljeđenog kao parametar name) koji se nalazi u tabeli objectName (user\_tables). 
+
+\section{Funkcija createView()}
+
+
+\textbf{String sql = "CREATE VIEW " + params.title +  " AS SELECT ";\\
+if (params.kolone.size() != 1)\\
+for (int i = 0; i<params.kolone.size() - 1; i++)\\
+Sql += params.kolone.get(i) + ", ";\\
+sql += params.kolone.get(params.kolone.size()-1);\\
+sql += " FROM ";\\
+if (params.tabele.size() != 1)\\
+for (int i=0; i<params.tabele.size()-1;i++) \\
+sql += params.tabele.get(i) +", ";\\
+sql += params.tabele.get(params.tabele.size()-1);\\
+sql += " WHERE " + params.uslov;\\}
+
+Prethodni kod ima za zadatak da kreira odovarajuću sekvencu s navedenim parametrima. Za pravilno kreiranje sekvence kroz datu funkciju, potrebno je proslijediti parametre: ime pogleda, kolone za select klauzulu, tabele za from klauzulu i uslov za where klauzulu.
+
+Transakcija:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{CreateView.jpg}
+	\end{center}
+	\caption{Kreiranje pogleda}
+\end{figure}
+
+\section{Funkcija createTrigger()}
+Kako je tijelo funkcije createTrigger() za kreiranje trigera robustan, u nastavku neće biti priložen, ai će biti objašnjen smisao funkcije. Naime, za kreiranje trigera, potrebni su parametri: naziv trigera, trenutak okidanja trigera, akcija, tabele koje obuhvaća, varijable i kod. 
+
+Transakcija:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{CreateTrigger.jpg}
+	\end{center}
+	\caption{Kreiranje triggera}
+\end{figure}
+
+\section{Funkcija primaryKeys()}
+
+
+\textbf{SELECT object\_name FROM all\_objects WHERE object\_type = 'TABLE'}
+Upit vraća sve nazive objekta tipa TABLE iz tabele all\_objects. 
+\section{Funkcija createIndex()}
+\textbf{CREATE INDEX + params.title + ON + params.table + "(";\\
+for(int i = 0; i < params.columns.size(); i++)\\
+if (params.columns.size() - 1 != i)\\
+sql += params.columns.get(i) + ", ";\\
+else sql += params.columns.get(i) + ")";
+}
+
+Prethodno napisan kod kreira indeks naziva title nad tabelom table. Unutar indeksa su obuhvaćene kolone specificirane kroz parametar columns. 
+Transakcija:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{CreateIndex.jpg}
+	\end{center}
+	\caption{Kreiranje indeksa}
+\end{figure}
+
+
+\section{Funkcija showERD()}
+
+\textbf{SELECT utc.table\_name tableName, utc.column\_name columnName,\\
+CASE WHEN (utc.table\_name, utc.column\_name) IN ( \\
+SELECT uc.table\_name, ucc.column\_name \\
+FROM USER\_CONSTRAINTS uc, USER\_CONS\_COLUMNS ucc \\
+WHERE ucc.table\_name = uc.table\_name \\
+AND ucc.constraint\_name = uc.constraint\_name \\
+AND uc.constraint\_type IN ('P', 'R')\\
+) \\
+THEN 'true' 		\\
+ELSE 'false' END AS isKey \\
+FROM USER\_TAB\_COLUMNS utc, USER\_OBJECTS uo \\
+WHERE uo.created >= TO\_DATE('20171220', 'YYYYMMDD') \\
+AND utc.table\_name = uo.object\_name \\
+AND uo.object\_type = 'TABLE' \\
+ORDER BY utc.table\_name ASC;}
+
+
+Prethodni upit vraća informacije o nazivu tabela, svih njenih kolona i informacija da li kolona primary ili foreign ključ. Za potrebe projekta u kojem je korišten ovaj upit, u where klauzuli, filtriranje je pojačano sa datumom kreiranja tabela, odnosno da se vraćaju samo one koje su nastale nakon specificiranog datuma.
+
+\textbf{SELECT table\_name tableName\\
+FROM USER\_CONSTRAINTS \\
+WHERE constraint\_type = 'R'\\
+AND r\_constraint\_name IN(\\
+SELECT constraint\_name\\
+FROM ALL\_CONSTRAINTS \\
+WHERE table\_name = + lastTableName + \\
+AND constraint\_type = 'P');}
+
+Prethodni upit ima za cilj vraćanje svih tabela vezani za specificiranu tabelu (kroz parametar lastTableName) preko primarnog ključa, odnosno sve tabele koje za foreign ključ imaju primary ključ specificirane tabele. 
+
+\section{Funkcija create\_AutoIncrement\_Trigger()}
+
+\textbf{CREATE SEQUENCE seq\_ + nazivTabele +\_+ nazivKolone \\
+MINVALUE 1 \\
+START WITH 1 \\
+INCREMENT BY 1 \\
+CACHE 20";\\
+CREATE OR REPLACE TRIGGER sequence\_trigger\_ + nazivTabele + \_ + \\
+nazivKolone + \\
+BEFORE INSERT ON + nazivTabele + \\
+FOR EACH ROW \\
+BEGIN \\
+SELECT seq\_ + nazivTabele + \_ + nazivKolone + .NEXTVAL \\
+INTO :new. + nazivKolone + \\
+FROM dual; \\
+END;}
+
+Funkcija create\_AutoIncrement\_Trigger() kreira odgovarajuću sekvencu i treger ukoliko je u funkciji createTable() specificirana opcija autoincrement. 
+
+
+\section{Funkcija createTable()}
+Radi opširnosti i nepreglednosti koda, isti neće biti priložen u nastavku teksta, već će ukratko biti opisan smisao funkcije. 
+Zadatak funkcije je kreiranje tabele/a na osnovu korisničkih ulaznih parametara. Za kreiranje potrebni su: naziv tabele, i informacije o koloni ili kolonama (primary/foreign ključ, unique tip ili kolona bez ograničenja, tip kolone, da li je nullable, opcija autoincrement). Opcija autoincrement kreira sekvencu i triger koji ima ulogu nadomještanja vrijednosti ukoliko korisnik nije specificirao istu prilikom unosa. 
+
+
+Transakcija:
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[height=0.5\textwidth]{CreateTable.jpg}
+	\end{center}
+	\caption{Kreiranje tabele}
+\end{figure}
 
 \end{document}
