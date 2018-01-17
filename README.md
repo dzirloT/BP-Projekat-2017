@@ -7,7 +7,7 @@ Dodavanje repozitorija se vrši sljedećom komandom:
 Instalacija Java okruženja se onda pokreće sljedećim komandama: 
 *sudo apt-get install oracle-java8-installer 
 sudo apt-get install oracle-java8-set-default*
-Nakon što se odrade prethodni koraci, potrebno je pokrenuti Spring i importovati projekat (kao “existing maven project”), te desni klik na projekat i odabrati “build path” -> “add external archives…” i odabrati **“ojdbc8.jar” **iz projektnog foldera. 
+Nakon što se odrade prethodni koraci, potrebno je pokrenuti Spring i importovati projekat (kao “existing maven project”), te desni klik na projekat i odabrati “build path” -> “add external archives…” i odabrati **“ojdbc8.jar”** iz projektnog foldera. 
 
 ## PostgreSQL
 U ovom poglavlju će biti opisano postavljanje PostrgreSQL baze podataka. Za rad sa ovom bazom je potrebno instalirati PostgreSQL RDBMS (Relational Database Management System). Za jednostavniji rad je moguće instalirati grafički alat za rad s bazom podataka pod nazivom pgAdmin. Koraci za instalaciju ovih alata će biti prikazani u nastavku. 
