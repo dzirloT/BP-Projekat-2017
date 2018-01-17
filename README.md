@@ -17,10 +17,14 @@ Nakon što se odrade prethodni koraci, potrebno je pokrenuti Spring i importovat
 ## PostgreSQL
 U ovom poglavlju će biti opisano postavljanje PostrgreSQL baze podataka. Za rad sa ovom bazom je potrebno instalirati PostgreSQL RDBMS (Relational Database Management System). Za jednostavniji rad je moguće instalirati grafički alat za rad s bazom podataka pod nazivom pgAdmin. Koraci za instalaciju ovih alata će biti prikazani u nastavku. 
 Na Linux operativnim sistemima, koji koriste APT, je moguće instalaciju opisanih alata uraditi sljedećom komandom:
- *apt-get install postgresql postgresql-contrib postgresql-client pgadmin3 *
+
+ *apt-get install postgresql postgresql-contrib postgresql-client pgadmin3*
+ 
 Nakon što se komanda izvrši, na sistemu su instalirani PostrgreSQL server i pgAdmin alat. Još je potrebno pokrenuti server i postaviti defaultnog korisnika za PostgreSQL proces, što se postiže sljedećim komandama: 
-*sudo /etc/init.d/postgresql start 
-sudo -u postgres psql postgres*
+
+*sudo /etc/init.d/postgresql start*
+
+*sudo -u postgres psql postgres*
 
 Nakon što se pokrene psql komanda, potrebno je odrediti password za datog korisnika, jer isti inicijalno nije postavljen, te ga treba postaviti na **“dbpass”**.
 Nakon što se PostgreSQL instalira, potrebno je kreirati novu bazu i nazvati je **“bpDemo”**, te pod owner poljem staviti **“postgres”**. 
