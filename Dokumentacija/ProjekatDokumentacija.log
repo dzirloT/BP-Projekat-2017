@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.17)  6 JAN 2018 20:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.10)  16 JAN 2018 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,20 +1119,20 @@ Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 (./ProjekatDokumentacija.aux)
 \openout1 = `ProjekatDokumentacija.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
@@ -1191,7 +1191,7 @@ Package caption Info: End \AtBeginDocument code.
 \everyMPtoPDFconversion=\toks53
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 102.
+Package hyperref Info: Link coloring ON on input line 104.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1201,9 +1201,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count175
 )
-LaTeX Info: Redefining \ref on input line 102.
-LaTeX Info: Redefining \pageref on input line 102.
-LaTeX Info: Redefining \nameref on input line 102.
+LaTeX Info: Redefining \ref on input line 104.
+LaTeX Info: Redefining \pageref on input line 104.
+LaTeX Info: Redefining \nameref on input line 104.
 
 (./ProjekatDokumentacija.out) (./ProjekatDokumentacija.out)
 \@outlinefile=\write5
@@ -1211,38 +1211,38 @@ LaTeX Info: Redefining \nameref on input line 102.
 
 \c@lstlisting=\count176
 
-<unsa.jpg, id=83, 84.315pt x 84.315pt>
+<unsa.jpg, id=135, 84.315pt x 84.315pt>
 File: unsa.jpg Graphic file (type jpg)
  <use unsa.jpg>
-Package pdftex.def Info: unsa.jpg used on input line 109.
+Package pdftex.def Info: unsa.jpg used on input line 111.
 (pdftex.def)             Requested size: 55.3203pt x 55.32127pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 111.
+LaTeX Font Info:    Try loading font information for U+msa on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 111.
+LaTeX Font Info:    Try loading font information for U+msb on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<ETF_logo.png, id=84, 363.759pt x 363.759pt>
+<ETF_logo.png, id=136, 363.759pt x 363.759pt>
 File: ETF_logo.png Graphic file (type png)
  <use ETF_logo.png>
-Package pdftex.def Info: ETF_logo.png used on input line 121.
+Package pdftex.def Info: ETF_logo.png used on input line 123.
 (pdftex.def)             Requested size: 55.3203pt x 55.31636pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--125
+Underfull \hbox (badness 10000) in paragraph at lines 107--127
 
  []
 
 
-Overfull \hbox (12.71037pt too wide) in paragraph at lines 139--160
+Overfull \hbox (12.71037pt too wide) in paragraph at lines 141--162
 []$[]$   $[]$   $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--160
+Underfull \hbox (badness 10000) in paragraph at lines 141--162
 
  []
 
@@ -1257,23 +1257,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.177 \chapter
+l.179 \chapter
               {Opis teme} [1
 
 ]
 Poglavlje 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 187.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 189.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 187.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 189.
 
-<usecase.jpg, id=118, 366.36874pt x 780.9175pt>
+<usecase.jpg, id=184, 366.36874pt x 780.9175pt>
 File: usecase.jpg Graphic file (type jpg)
  <use usecase.jpg>
-Package pdftex.def Info: usecase.jpg used on input line 199.
+Package pdftex.def Info: usecase.jpg used on input line 201.
 (pdftex.def)             Requested size: 276.60573pt x 589.61891pt.
  [2
 
@@ -1282,18 +1282,18 @@ Poglavlje 2.
 [4
 
 ] [5]
-Overfull \hbox (5.00902pt too wide) in paragraph at lines 257--257
+Overfull \hbox (5.00902pt too wide) in paragraph at lines 259--259
 []\OT1/cmr/bx/n/17.28 Prikaz, kre-ira-nje, ure[]divanje i bri-sa-nje po-
  []
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 257.
+(hyperref)                removing `\dj' on input line 259.
 
 [6]
 Poglavlje 3.
 
-Overfull \hbox (2.4718pt too wide) in paragraph at lines 274--275
+Overfull \hbox (2.4718pt too wide) in paragraph at lines 276--277
 \OT1/cmr/m/n/12 del, ne-za-vi-san od pro-duk-cij-ske plat-forme. Spring obezbje
 []duje po-sebnu podr^^Tsku
  []
@@ -1302,105 +1302,304 @@ Overfull \hbox (2.4718pt too wide) in paragraph at lines 274--275
 
 ] [8] [9] [10]
 Poglavlje 4.
-[11
+<a1.png, id=239, 1344.02126pt x 440.64626pt>
+File: a1.png Graphic file (type png)
+ <use a1.png>
+Package pdftex.def Info: a1.png used on input line 331.
+(pdftex.def)             Requested size: 355.63507pt x 116.59587pt.
 
-]
+<a2.png, id=240, 1279.78125pt x 654.445pt>
+File: a2.png Graphic file (type png)
+ <use a2.png>
+Package pdftex.def Info: a2.png used on input line 340.
+(pdftex.def)             Requested size: 355.63507pt x 181.86528pt.
+ [11
+
+ <./a1.png> <./a2.png>] <a3.png, id=249, 1283.79625pt x 672.5125pt>
+File: a3.png Graphic file (type png)
+ <use a3.png>
+Package pdftex.def Info: a3.png used on input line 349.
+(pdftex.def)             Requested size: 355.63507pt x 186.29091pt.
+
+<a4.png, id=250, 1347.0325pt x 552.0625pt>
+File: a4.png Graphic file (type png)
+ <use a4.png>
+Package pdftex.def Info: a4.png used on input line 356.
+(pdftex.def)             Requested size: 355.63507pt x 145.7483pt.
+ [12 <./a3.png> <./a4.png>] <a5.png, id=260, 1288.815pt x 653.44125pt>
+File: a5.png Graphic file (type png)
+ <use a5.png>
+Package pdftex.def Info: a5.png used on input line 366.
+(pdftex.def)             Requested size: 355.63507pt x 180.31009pt.
+
+<a6.png, id=261, 1250.6725pt x 666.49pt>
+File: a6.png Graphic file (type png)
+ <use a6.png>
+Package pdftex.def Info: a6.png used on input line 372.
+(pdftex.def)             Requested size: 355.63507pt x 189.51431pt.
+ [13 <./a5.png> <./a6.png>] <a18.png, id=270, 1222.5675pt x 679.53876pt>
+File: a18.png Graphic file (type png)
+ <use a18.png>
+Package pdftex.def Info: a18.png used on input line 383.
+(pdftex.def)             Requested size: 355.63507pt x 197.66258pt.
+
+<a20.png, id=271, 1346.02875pt x 656.4525pt>
+File: a20.png Graphic file (type png)
+ <use a20.png>
+Package pdftex.def Info: a20.png used on input line 390.
+(pdftex.def)             Requested size: 355.63507pt x 173.43822pt.
+
+<a21.png, id=272, 1341.01pt x 637.38126pt>
+File: a21.png Graphic file (type png)
+ <use a21.png>
+Package pdftex.def Info: a21.png used on input line 396.
+(pdftex.def)             Requested size: 355.63507pt x 169.03166pt.
+ [14 <./a18.png> <./a20.png>] <a7.png, id=281, 1287.81125pt x 672.5125pt>
+File: a7.png Graphic file (type png)
+ <use a7.png>
+Package pdftex.def Info: a7.png used on input line 405.
+(pdftex.def)             Requested size: 355.63507pt x 185.71626pt.
+ [15 <./a21.png> <./a7.png>] <a15.png, id=290, 1346.02875pt x 367.3725pt>
+File: a15.png Graphic file (type png)
+ <use a15.png>
+Package pdftex.def Info: a15.png used on input line 414.
+(pdftex.def)             Requested size: 355.63507pt x 97.06174pt.
+
+<a8.png, id=291, 1269.74374pt x 669.50125pt>
+File: a8.png Graphic file (type png)
+ <use a8.png>
+Package pdftex.def Info: a8.png used on input line 421.
+(pdftex.def)             Requested size: 355.63507pt x 187.51015pt.
+ [16 <./a15.png> <./a8.png>] <a16.png, id=300, 1323.94624pt x 671.50874pt>
+File: a16.png Graphic file (type png)
+ <use a16.png>
+Package pdftex.def Info: a16.png used on input line 432.
+(pdftex.def)             Requested size: 355.63507pt x 180.37737pt.
+File: a16.png Graphic file (type png)
+
+<use a16.png>
+Package pdftex.def Info: a16.png used on input line 438.
+(pdftex.def)             Requested size: 355.63507pt x 180.37737pt.
+ [17 <./a16.png>] <a9.png, id=308, 1260.71pt x 674.52pt>
+File: a9.png Graphic file (type png)
+
+<use a9.png>
+Package pdftex.def Info: a9.png used on input line 446.
+(pdftex.def)             Requested size: 355.63507pt x 190.27435pt.
+ <a10.png, id=309, 1295.84125pt x 671.50874pt>
+File: a10.png Graphic file (type png)
+ <use a10.png>
+Package pdftex.def Info: a10.png used on input line 453.
+(pdftex.def)             Requested size: 355.63507pt x 184.29147pt.
+
+[18 <./a9.png> <./a10.png>] <a19.png, id=320, 1310.8975pt x 611.28375pt>
+File: a19.png Graphic file (type png)
+
+<use a19.png>
+Package pdftex.def Info: a19.png used on input line 464.
+(pdftex.def)             Requested size: 355.63507pt x 165.83232pt.
+ <a13.png, id=321, 1371.1225pt x 218.8175pt>
+File: a13.png Graphic file (type png)
+ <use a13.png>
+Package pdftex.def Info: a13.png used on input line 471.
+(pdftex.def)             Requested size: 355.63507pt x 56.7543pt.
+
+<a14.png, id=322, 1272.755pt x 674.52pt>
+File: a14.png Graphic file (type png)
+ <use a14.png>
+Package pdftex.def Info: a14.png used on input line 478.
+(pdftex.def)             Requested size: 355.63507pt x 188.4732pt.
+ [19 <./a19.png> <./a13.png> <./a14.png>] <a11.png, id=333, 1339.0025pt x 668.4
+975pt>
+File: a11.png Graphic file (type png)
+ <use a11.png>
+Package pdftex.def Info: a11.png used on input line 488.
+(pdftex.def)             Requested size: 355.63507pt x 177.54881pt.
+
+<a12.png, id=334, 1277.77374pt x 675.52374pt>
+File: a12.png Graphic file (type png)
+ <use a12.png>
+Package pdftex.def Info: a12.png used on input line 495.
+(pdftex.def)             Requested size: 355.63507pt x 188.01152pt.
+ [20 <./a11.png> <./a12.png>]
 Poglavlje 5.
-<a.jpg, id=178, 722.7pt x 1284.8pt>
+<a.jpg, id=343, 722.7pt x 1284.8pt>
 File: a.jpg Graphic file (type jpg)
  <use a.jpg>
-Package pdftex.def Info: a.jpg used on input line 333.
+Package pdftex.def Info: a.jpg used on input line 505.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [12
+ [21
 
  <./a.jpg>]
-<b.jpg, id=185, 722.7pt x 1284.8pt>
+<b.jpg, id=349, 722.7pt x 1284.8pt>
 File: b.jpg Graphic file (type jpg)
  <use b.jpg>
-Package pdftex.def Info: b.jpg used on input line 341.
+Package pdftex.def Info: b.jpg used on input line 513.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<c.jpg, id=186, 722.7pt x 1284.8pt>
+<c.jpg, id=350, 722.7pt x 1284.8pt>
 File: c.jpg Graphic file (type jpg)
  <use c.jpg>
-Package pdftex.def Info: c.jpg used on input line 349.
+Package pdftex.def Info: c.jpg used on input line 521.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [13 <./b.jpg> <./c.jpg>]
-<d.jpg, id=193, 722.7pt x 1284.8pt>
+ [22 <./b.jpg> <./c.jpg>]
+<d.jpg, id=357, 722.7pt x 1284.8pt>
 File: d.jpg Graphic file (type jpg)
  <use d.jpg>
-Package pdftex.def Info: d.jpg used on input line 357.
+Package pdftex.def Info: d.jpg used on input line 529.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<e.jpg, id=194, 722.7pt x 1284.8pt>
+<e.jpg, id=358, 722.7pt x 1284.8pt>
 File: e.jpg Graphic file (type jpg)
  <use e.jpg>
-Package pdftex.def Info: e.jpg used on input line 365.
+Package pdftex.def Info: e.jpg used on input line 537.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [14 <./d.jpg> <./e.jpg>]
-<f.jpg, id=201, 722.7pt x 1284.8pt>
+ [23 <./d.jpg> <./e.jpg>]
+<f.jpg, id=365, 722.7pt x 1284.8pt>
 File: f.jpg Graphic file (type jpg)
  <use f.jpg>
-Package pdftex.def Info: f.jpg used on input line 373.
+Package pdftex.def Info: f.jpg used on input line 545.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<g.jpg, id=202, 722.7pt x 1284.8pt>
+<g.jpg, id=366, 722.7pt x 1284.8pt>
 File: g.jpg Graphic file (type jpg)
  <use g.jpg>
-Package pdftex.def Info: g.jpg used on input line 381.
+Package pdftex.def Info: g.jpg used on input line 553.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [15 <./f.jpg> <./g.jpg>]
-<h.jpg, id=209, 722.7pt x 1284.8pt>
+ [24 <./f.jpg> <./g.jpg>]
+<h.jpg, id=374, 722.7pt x 1284.8pt>
 File: h.jpg Graphic file (type jpg)
  <use h.jpg>
-Package pdftex.def Info: h.jpg used on input line 389.
+Package pdftex.def Info: h.jpg used on input line 561.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<i.jpg, id=210, 722.7pt x 1284.8pt>
+<i.jpg, id=375, 722.7pt x 1284.8pt>
 File: i.jpg Graphic file (type jpg)
  <use i.jpg>
-Package pdftex.def Info: i.jpg used on input line 396.
+Package pdftex.def Info: i.jpg used on input line 568.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [16 <./h.jpg> <./i.jpg>]
-<j.jpg, id=217, 722.7pt x 1284.8pt>
+ [25 <./h.jpg> <./i.jpg>]
+<j.jpg, id=382, 722.7pt x 1284.8pt>
 File: j.jpg Graphic file (type jpg)
  <use j.jpg>
-Package pdftex.def Info: j.jpg used on input line 404.
+Package pdftex.def Info: j.jpg used on input line 576.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<k.jpg, id=218, 722.7pt x 1284.8pt>
+<k.jpg, id=383, 722.7pt x 1284.8pt>
 File: k.jpg Graphic file (type jpg)
  <use k.jpg>
-Package pdftex.def Info: k.jpg used on input line 412.
+Package pdftex.def Info: k.jpg used on input line 584.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [17 <./j.jpg> <./k.jpg>]
-<l.jpg, id=225, 722.7pt x 1284.8pt>
+ [26 <./j.jpg> <./k.jpg>]
+<l.jpg, id=390, 722.7pt x 1284.8pt>
 File: l.jpg Graphic file (type jpg)
  <use l.jpg>
-Package pdftex.def Info: l.jpg used on input line 420.
+Package pdftex.def Info: l.jpg used on input line 592.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
 
-<m.jpg, id=226, 722.7pt x 1284.8pt>
+<m.jpg, id=391, 722.7pt x 1284.8pt>
 File: m.jpg Graphic file (type jpg)
  <use m.jpg>
-Package pdftex.def Info: m.jpg used on input line 428.
+Package pdftex.def Info: m.jpg used on input line 600.
 (pdftex.def)             Requested size: 111.13513pt x 197.57639pt.
- [18 <./l.jpg> <./m.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 435.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 435.
+ [27 <./l.jpg> <./m.jpg>]
+Poglavlje 6.
+<LoginDiagram.jpg, id=398, 951.555pt x 410.53375pt>
+File: LoginDiagram.jpg Graphic file (type jpg)
+ <use LoginDiagram.jpg>
+Package pdftex.def Info: LoginDiagram.jpg used on input line 611.
+(pdftex.def)             Requested size: 457.94633pt x 197.57639pt.
 
-(./ProjekatDokumentacija.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 435.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 435.
+Overfull \hbox (62.79356pt too wide) in paragraph at lines 611--612
+ [] 
+ []
+
+[28
+
+ <./LoginDiagram.jpg>]
+Overfull \hbox (57.4337pt too wide) in paragraph at lines 633--635
+\OT1/cmr/bx/n/12 SELECT + na-ziv-Ta-bele + , + na-ziv-Ko-lone + FROM USER[]TAB[
+]COLUMNS 
+ []
+
+
+Overfull \hbox (26.01508pt too wide) in paragraph at lines 644--645
+\OT1/cmr/m/n/12 upit ima u ci-lju vra^^Scanje me-ta-po-da-taka objekta (u ovom 
+slu^^Tcaju ta-bela proslje[]denog
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+[29] <CreateView.jpg, id=408, 895.345pt x 446.66875pt>
+File: CreateView.jpg Graphic file (type jpg)
+ <use CreateView.jpg>
+Package pdftex.def Info: CreateView.jpg used on input line 666.
+(pdftex.def)             Requested size: 396.04327pt x 197.57639pt.
+
+Overfull \hbox (0.8905pt too wide) in paragraph at lines 666--667
+ [] 
+ []
+
+<CreateTrigger.jpg, id=409, 895.345pt x 446.66875pt>
+File: CreateTrigger.jpg Graphic file (type jpg)
+ <use CreateTrigger.jpg>
+Package pdftex.def Info: CreateTrigger.jpg used on input line 677.
+(pdftex.def)             Requested size: 396.04327pt x 197.57639pt.
+
+Overfull \hbox (0.8905pt too wide) in paragraph at lines 677--678
+ [] 
+ []
+
+[30 <./CreateView.jpg>] <CreateIndex.jpg, id=416, 895.345pt x 446.66875pt>
+File: CreateIndex.jpg Graphic file (type jpg)
+
+<use CreateIndex.jpg>
+Package pdftex.def Info: CreateIndex.jpg used on input line 699.
+(pdftex.def)             Requested size: 396.04327pt x 197.57639pt.
+
+Overfull \hbox (0.8905pt too wide) in paragraph at lines 699--700
+ [] 
+ []
+
+[31 <./CreateTrigger.jpg>]
+Overfull \hbox (7.78238pt too wide) in paragraph at lines 721--722
+\OT1/cmr/bx/n/12 SELECT utc.table[]name ta-ble-Name, utc.column[]name co-lum-n-
+Name, 
+ []
+
+[32 <./CreateIndex.jpg>]
+Overfull \hbox (10.99374pt too wide) in paragraph at lines 737--737
+[]\OT1/cmr/bx/n/17.28 Funkcija cre-ate[]AutoIncrement[]Trigger() 
+ []
+
+<CreateTable.jpg, id=427, 895.345pt x 446.66875pt>
+File: CreateTable.jpg Graphic file (type jpg)
+ <use CreateTable.jpg>
+Package pdftex.def Info: CreateTable.jpg used on input line 765.
+(pdftex.def)             Requested size: 396.04327pt x 197.57639pt.
+
+Overfull \hbox (0.8905pt too wide) in paragraph at lines 765--766
+ [] 
+ []
+
+[33] [34 <./CreateTable.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 770.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 770.
+ (./ProjekatDokumentacija.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 770.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 770.
 Package rerunfilecheck Info: File `ProjekatDokumentacija.out' has not changed.
-(rerunfilecheck)             Checksum: E68FD30ACFD1D52F6BAFEE256CFDC734;1253.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 435.
+(rerunfilecheck)             Checksum: 43D74A3A653D6B639ADCAF150D069581;2193.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 770.
  ) 
 Here is how much of TeX's memory you used:
- 21669 strings out of 493029
- 384012 string characters out of 6136233
- 472393 words of memory out of 5000000
- 24709 multiletter control sequences out of 15000+600000
+ 21863 strings out of 493029
+ 386413 string characters out of 6136234
+ 473390 words of memory out of 5000000
+ 24823 multiletter control sequences out of 15000+600000
  14308 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,8n,54p,1290b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1411,10 +1610,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmti12.pfb>
-Output written on ProjekatDokumentacija.pdf (19 pages, 1067597 bytes).
+Output written on ProjekatDokumentacija.pdf (35 pages, 2741301 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 488 PDF objects out of 1000 (max. 8388607)
+ 378 compressed objects within 4 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 474 words of extra memory for PDF output out of 10000 (max. 10000000)
 
