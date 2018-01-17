@@ -4,13 +4,13 @@ Da bi bilo moguće koristiti Java Spring framework, potrebno je prethodno imati 
 Na Linux operativnim sistemima je dovoljno kroz terminal koristiti komande za odgovarajući packet manager. Prije toga je potrebno dodati zvanični repozitorij sa kojeg će biti dobavljeni potrebni fajlovi. U nastavku će biti prikazan proces specifično za Ubuntu distribucije (kao i druge debian distribucije koje koriste APT)
 Dodavanje repozitorija se vrši sljedećom komandom:
 
-*sudo add-apt-repository ppa:webupd8team/java *
+*sudo add-apt-repository ppa:webupd8team/java*
 
 Instalacija Java okruženja se onda pokreće sljedećim komandama: 
 
-*sudo apt-get install oracle-java8-installer 
+*sudo apt-get install oracle-java8-installer* 
 
-sudo apt-get install oracle-java8-set-default*
+*sudo apt-get install oracle-java8-set-default*
 
 Nakon što se odrade prethodni koraci, potrebno je pokrenuti Spring i importovati projekat (kao “existing maven project”), te desni klik na projekat i odabrati “build path” -> “add external archives…” i odabrati **“ojdbc8.jar”** iz projektnog foldera. 
 
